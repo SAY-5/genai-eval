@@ -1,0 +1,17 @@
+labels: [positivo, negativo, neutral]
+examples:
+  - id: cls-001
+    input:
+      text: Me encantó esta película — fue cálida, divertida y muy bien filmada.
+    gold:
+      label: positivo
+  - id: cls-002
+    input:
+      text: La película se hizo eterna y los diálogos sonaban forzados todo el tiempo.
+    gold:
+      label: negativo
+  - id: cls-003
+    input:
+      text: Tenía muchas esperanzas pero salí del cine decepcionado y aburrido.
+    gold:
+      label: negativo

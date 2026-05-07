@@ -1,0 +1,19 @@
+examples:
+  - id: qa-001
+    input:
+      passage: Francia es un país de Europa occidental. Su capital es París, situada a orillas del Sena.
+      question: ¿Cuál es la capital de Francia?
+    gold:
+      answer: París
+  - id: qa-002
+    input:
+      passage: El Apolo 11 alunizó el 20 de julio de 1969 con los astronautas Neil Armstrong y Buzz Aldrin.
+      question: ¿En qué año alunizó el Apolo 11?
+    gold:
+      answer: "1969"
+  - id: qa-003
+    input:
+      passage: Kioto fue la capital imperial de Japón durante más de mil años, hasta que la capital se trasladó a Tokio en 1868.
+      question: ¿Cuál fue la capital imperial de Japón antes de 1868?
+    gold:
+      answer: Kioto

@@ -1,0 +1,17 @@
+labels: [positive, negative, neutral]
+examples:
+  - id: cls-001
+    input:
+      text: I absolutely loved this movie — it was warm, funny, and beautifully shot.
+    gold:
+      label: positive
+  - id: cls-002
+    input:
+      text: The film dragged on for two hours and the dialogue felt forced throughout.
+    gold:
+      label: negative
+  - id: cls-003
+    input:
+      text: I had high hopes but left the theater feeling disappointed and bored.
+    gold:
+      label: negative

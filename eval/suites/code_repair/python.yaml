@@ -1,0 +1,48 @@
+examples:
+  - id: cr-001
+    buggy_code: |
+      def add(a, b):
+          return a - b
+    test_code: |
+      assert add(2, 3) == 5
+      assert add(0, 0) == 0
+      assert add(-1, 1) == 0
+    reference_fix: |
+      def add(a, b):
+          return a + b
+
+  - id: cr-002
+    buggy_code: |
+      def factorial(n):
+          if n == 0:
+              return 1
+          return n * factorial(n - 2)
+    test_code: |
+      assert factorial(5) == 120
+      assert factorial(0) == 1
+      assert factorial(1) == 1
+    reference_fix: |
+      def factorial(n):
+          if n <= 1:
+              return 1
+          return n * factorial(n - 1)
+
+  - id: cr-003
+    buggy_code: |
+      def find_max(xs):
+          m = xs[0]
+          for x in xs:
+              if x < m:
+                  m = x
+          return m
+    test_code: |
+      assert find_max([1, 5, 3]) == 5
+      assert find_max([-1, -5, -3]) == -1
+      assert find_max([42]) == 42
+    reference_fix: |
+      def find_max(xs):
+          m = xs[0]
+          for x in xs:
+              if x > m:
+                  m = x
+          return m

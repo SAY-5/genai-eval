@@ -1,0 +1,19 @@
+examples:
+  - id: qa-001
+    input:
+      passage: フランスは西ヨーロッパの国である。首都はパリで、セーヌ川沿いに位置する。
+      question: フランスの首都はどこですか？
+    gold:
+      answer: パリ
+  - id: qa-002
+    input:
+      passage: アポロ十一号は一九六九年七月二十日にニール・アームストロングとバズ・オルドリンを乗せて月に着陸した。
+      question: アポロ十一号が月に着陸したのは何年ですか？
+    gold:
+      answer: 1969年
+  - id: qa-003
+    input:
+      passage: 京都は一八六八年に首都が東京へ移るまで千年以上にわたって日本の都であった。
+      question: 一八六八年以前、日本の都はどこでしたか？
+    gold:
+      answer: 京都

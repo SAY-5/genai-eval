@@ -1,0 +1,41 @@
+examples:
+  - id: sum-001
+    input:
+      passage: |
+        Los paneles solares funcionan convirtiendo la luz del sol en electricidad
+        mediante células fotovoltaicas. Cuando los fotones golpean la capa de
+        silicio, liberan electrones y generan una corriente continua. Un inversor
+        transforma esa corriente continua en la corriente alterna que usan los
+        electrodomésticos. Los paneles modernos convierten entre el 18 y el 22%
+        de la luz incidente en electricidad utilizable.
+    gold:
+      summary: |
+        Los paneles solares convierten la luz solar en electricidad mediante
+        células fotovoltaicas que liberan electrones en el silicio; un inversor
+        convierte la corriente continua resultante en alterna.
+  - id: sum-002
+    input:
+      passage: |
+        Las poblaciones de abejas melíferas han disminuido drásticamente en las
+        últimas dos décadas. Los investigadores atribuyen este colapso a varios
+        factores: pesticidas neonicotinoides, el ácaro Varroa destructor, la
+        pérdida de hábitat por monocultivos, y el estrés del transporte de larga
+        distancia para servicios comerciales de polinización.
+    gold:
+      summary: |
+        Las abejas melíferas han disminuido por una combinación de pesticidas,
+        ácaros Varroa, pérdida de hábitat y estrés del transporte comercial.
+  - id: sum-003
+    input:
+      passage: |
+        La imprenta de Johannes Gutenberg, introducida en Maguncia hacia 1440,
+        utilizaba tipos móviles de metal y tinta con base de aceite para producir
+        libros en masa. En cincuenta años, había imprentas en más de 250 ciudades
+        europeas y se habían impreso unos veinte millones de volúmenes. El coste
+        de los libros cayó más de diez veces, acelerando la alfabetización y la
+        difusión de ideas nuevas.
+    gold:
+      summary: |
+        La imprenta de tipos móviles de Gutenberg, presentada en Maguncia hacia
+        1440, redujo drásticamente el coste de los libros y aceleró la
+        alfabetización europea en cincuenta años.

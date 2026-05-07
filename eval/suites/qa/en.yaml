@@ -1,0 +1,19 @@
+examples:
+  - id: qa-001
+    input:
+      passage: France is a country in Western Europe. Its capital is Paris, located on the Seine river.
+      question: What is the capital of France?
+    gold:
+      answer: Paris
+  - id: qa-002
+    input:
+      passage: Apollo 11 landed on the Moon on July 20, 1969, with astronauts Neil Armstrong and Buzz Aldrin.
+      question: In what year did Apollo 11 land on the Moon?
+    gold:
+      answer: "1969"
+  - id: qa-003
+    input:
+      passage: Kyoto served as the imperial capital of Japan for over a thousand years before the capital moved to Tokyo in 1868.
+      question: Which city was the imperial capital of Japan before 1868?
+    gold:
+      answer: Kyoto

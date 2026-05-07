@@ -1,0 +1,42 @@
+examples:
+  - id: sum-001
+    input:
+      passage: |
+        Solar panels work by converting sunlight into electricity through
+        photovoltaic cells. When photons strike the silicon layer, they free
+        electrons, generating a flow of direct current. An inverter then
+        converts the DC into the alternating current used by household
+        appliances. Modern panels typically convert 18-22% of incident sunlight
+        into usable electricity.
+    gold:
+      summary: |
+        Solar panels convert sunlight into electricity using photovoltaic cells,
+        which free electrons in silicon when struck by photons; an inverter
+        converts the resulting DC to AC.
+  - id: sum-002
+    input:
+      passage: |
+        Honeybee populations have declined sharply over the past two decades.
+        Researchers attribute this collapse to a mix of factors: neonicotinoid
+        pesticides, the Varroa destructor mite, habitat loss as wildflower
+        meadows give way to monoculture, and stress from long-distance
+        transport for commercial pollination services.
+    gold:
+      summary: |
+        Honeybee populations have declined due to a combination of pesticides,
+        Varroa mites, habitat loss, and transport stress from commercial
+        pollination.
+  - id: sum-003
+    input:
+      passage: |
+        Johannes Gutenberg's printing press, introduced in Mainz around 1440,
+        used movable metal type and an oil-based ink to mass-produce books.
+        Within fifty years, presses operated in over 250 European cities, and
+        an estimated twenty million volumes had been printed. The cost of
+        books fell by a factor of more than ten, accelerating literacy and
+        the spread of new ideas.
+    gold:
+      summary: |
+        Gutenberg's movable-type printing press, introduced in Mainz around
+        1440, drastically lowered book costs and accelerated European literacy
+        within fifty years.

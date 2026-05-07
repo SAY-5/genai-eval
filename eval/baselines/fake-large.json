@@ -1,0 +1,131 @@
+{
+  "run_id": 1,
+  "provider": "fake",
+  "model": "fake-large",
+  "produced_at": "2026-05-07T08:24:31.026334+00:00",
+  "suite_filter": {},
+  "summary": {
+    "cells": [
+      {
+        "task": "classification",
+        "language": "en",
+        "n": 3,
+        "pass_rate": 0.6666666666666666,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "classification",
+        "language": "es",
+        "n": 3,
+        "pass_rate": 0.6666666666666666,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "classification",
+        "language": "ja",
+        "n": 3,
+        "pass_rate": 0.6666666666666666,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "code_repair",
+        "language": "py",
+        "n": 3,
+        "pass_rate": 1.0,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "qa",
+        "language": "en",
+        "n": 3,
+        "pass_rate": 0.6666666666666666,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "qa",
+        "language": "es",
+        "n": 3,
+        "pass_rate": 0.6666666666666666,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "qa",
+        "language": "ja",
+        "n": 3,
+        "pass_rate": 1.0,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "summarization",
+        "language": "en",
+        "n": 3,
+        "pass_rate": 0.3333333333333333,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "summarization",
+        "language": "es",
+        "n": 3,
+        "pass_rate": 0.3333333333333333,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "summarization",
+        "language": "ja",
+        "n": 3,
+        "pass_rate": 0.0,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "translation",
+        "language": "en-es",
+        "n": 3,
+        "pass_rate": 1.0,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "translation",
+        "language": "en-ja",
+        "n": 3,
+        "pass_rate": 0.6666666666666666,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      },
+      {
+        "task": "translation",
+        "language": "es-en",
+        "n": 3,
+        "pass_rate": 1.0,
+        "mean_cost_usd": 0.0,
+        "p95_latency_ms": 1.0,
+        "errors": 0
+      }
+    ],
+    "overall_pass_rate": 0.6666666666666666,
+    "n_total": 39,
+    "n_errors": 0
+  }
+}

@@ -1,0 +1,46 @@
+examples:
+  - id: trn-001
+    source: en
+    target: es
+    text: The cat is on the mat.
+    gold: El gato está sobre la alfombra.
+  - id: trn-002
+    source: en
+    target: es
+    text: It is raining heavily today.
+    gold: Hoy llueve mucho.
+  - id: trn-003
+    source: en
+    target: es
+    text: I like to read books.
+    gold: Me gusta leer libros.
+  - id: trn-001
+    source: en
+    target: ja
+    text: The cat is on the mat.
+    gold: 猫はマットの上にいます。
+  - id: trn-002
+    source: en
+    target: ja
+    text: It is raining heavily today.
+    gold: 今日は雨がよく降っています。
+  - id: trn-003
+    source: en
+    target: ja
+    text: I like to read books.
+    gold: 私は本を読むのが好きです。
+  - id: trn-001
+    source: es
+    target: en
+    text: El gato está sobre la alfombra.
+    gold: The cat is on the mat.
+  - id: trn-002
+    source: es
+    target: en
+    text: Hoy llueve mucho.
+    gold: It is raining heavily today.
+  - id: trn-003
+    source: es
+    target: en
+    text: Me gusta leer libros.
+    gold: I like to read books.

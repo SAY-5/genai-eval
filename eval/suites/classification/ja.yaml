@@ -1,0 +1,17 @@
+labels: [ポジティブ, ネガティブ, ニュートラル]
+examples:
+  - id: cls-001
+    input:
+      text: この映画は本当に良かった。温かくて、面白くて、映像も美しかった。
+    gold:
+      label: ポジティブ
+  - id: cls-002
+    input:
+      text: 映画は長すぎて、台詞も終始わざとらしく感じた。
+    gold:
+      label: ネガティブ
+  - id: cls-003
+    input:
+      text: 期待していたが、映画館を出るときには失望と退屈しか残らなかった。
+    gold:
+      label: ネガティブ
