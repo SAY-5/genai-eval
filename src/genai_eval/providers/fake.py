@@ -116,7 +116,7 @@ class FakeProvider:
         """Look up scripted response by tag, otherwise hash-derived stub."""
         del temperature  # deterministic
         prompt = "\n".join(f"{m.role}:{m.content}" for m in messages)
-        text = self._lookup(messages) or self._hashed_stub(prompt, model)
+        text = self._lookup(messages, model) or self._hashed_stub(prompt, model)
 
         prompt_chars = sum(len(m.content) for m in messages)
         tokens_in = max(1, prompt_chars // 4)
@@ -132,15 +132,15 @@ class FakeProvider:
         )
 
     @staticmethod
-    def _lookup(messages: Sequence[ChatMessage]) -> str | None:
+    def _lookup(messages: Sequence[ChatMessage], model: str = "fake-large") -> str | None:
         """Decode the orchestrator's tag protocol from the user message.
 
         Resolution order:
           1. Hard-coded ``SCRIPTED`` table for hand-curated baseline examples.
           2. Synthetic ``<<ANS=...>>`` (or ``<<ANS_B64=...>>``) echo for
-             examples whose id starts with ``syn-``. Every fifth example flips
-             the answer to a wrong stub so per-cell pass rates stay
-             informative (~80% by construction) instead of pinned to 100%.
+             examples whose id starts with ``syn-``. The deterministic-failure
+             cadence is model-aware (see ``_MODEL_FAIL_EVERY``) so A/B
+             comparison runs produce a measurable per-cell delta.
           3. Judge rubric defaults.
         """
         for msg in messages:
@@ -156,7 +156,7 @@ class FakeProvider:
                     return SCRIPTED[key]
                 example_id = tag.get("example_id", "")
                 if example_id.startswith("syn-"):
-                    return _synthetic_response(example_id, tag["task_type"], msg.content)
+                    return _synthetic_response(example_id, tag["task_type"], msg.content, model)
                 return None
             if kind == "judge":
                 return JUDGE_DEFAULTS.get(tag.get("rubric", ""), "0.80")
@@ -223,21 +223,32 @@ _WRONG_STUBS: dict[str, str] = {
     "code_repair": "def _broken():\n    raise RuntimeError('not implemented')\n",
 }
 
+# Model-aware failure cadence for synthetic examples: every Nth id fails. This
+# is what makes A/B comparison harness output non-trivial — fake-small "loses"
+# to fake-large by a measurable, deterministic amount.
+_MODEL_FAIL_EVERY: dict[str, int] = {
+    "fake-small": 3,
+    "fake-large": 5,
+}
+_DEFAULT_FAIL_EVERY = 5
 
-def _synthetic_response(example_id: str, task_type: str, prompt: str) -> str:
+
+def _synthetic_response(
+    example_id: str, task_type: str, prompt: str, model: str = "fake-large"
+) -> str:
     """Compute the FakeProvider's response for a synthetic example.
 
-    Determinism: the suffix of ``syn-NNN`` directly controls pass/fail. The
-    every-5th-id rule keeps per-cell pass rates around 80%, leaving room for
-    the regression gate to detect drift either way.
+    Determinism: the suffix of ``syn-NNN`` plus the model name fully determine
+    pass/fail. Smaller models fail more often (every third id) than larger
+    models (every fifth), giving the A/B comparison harness a stable signal.
     """
     suffix = example_id[len("syn-") :]
     try:
         idx = int(suffix)
     except ValueError:
         idx = 0
-    # idx 5, 10, 15, 20, 25 fail by design.
-    if idx > 0 and idx % 5 == 0:
+    fail_every = _MODEL_FAIL_EVERY.get(model, _DEFAULT_FAIL_EVERY)
+    if idx > 0 and idx % fail_every == 0:
         return _WRONG_STUBS.get(task_type, "[wrong]")
     ans = _extract_ans(prompt)
     if ans is None:
