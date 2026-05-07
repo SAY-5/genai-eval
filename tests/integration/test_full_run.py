@@ -53,8 +53,8 @@ async def test_full_run_persists_and_lists(fresh_db: None) -> None:  # noqa: ARG
         assert detail["status"] == "complete"
         assert detail["summary"]["n_total"] == summary["n_total"]
 
-        # items
-        r = await client.get(f"/v1/runs/{run_id}/items")
+        # items — request enough headroom for the expanded suite (471 examples).
+        r = await client.get(f"/v1/runs/{run_id}/items?limit=1000")
         assert r.status_code == 200
         items = r.json()
         assert len(items) == summary["n_total"]
