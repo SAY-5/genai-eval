@@ -199,5 +199,55 @@ def seed_cmd() -> None:
     asyncio.run(_seed())
 
 
+@main.command("calibration")
+@click.option("--run-id", type=int, required=True, help="Run id to calibrate against.")
+@click.option(
+    "--threshold",
+    type=float,
+    default=0.5,
+    show_default=True,
+    help="Disagreement threshold: |judge - human| greater than this counts as a miss.",
+)
+def calibration_cmd(run_id: int, threshold: float) -> None:
+    """Print judge-vs-human agreement rate per category and mean absolute error."""
+    from sqlalchemy import select as _select
+
+    from genai_eval.calibration import calibration_report
+    from genai_eval.models import HumanScore, RunItem, get_session_factory
+
+    async def _run() -> None:
+        Session = get_session_factory()
+        async with Session() as session:
+            items_stmt = _select(RunItem).where(RunItem.run_id == run_id).order_by(RunItem.id)
+            items = list((await session.execute(items_stmt)).scalars().all())
+            scores_stmt = _select(HumanScore).where(HumanScore.run_id == run_id)
+            scores = list((await session.execute(scores_stmt)).scalars().all())
+
+        if not items:
+            click.echo(f"no run items for run_id={run_id}")
+            return
+        if not scores:
+            click.echo(f"no human scores recorded for run_id={run_id}")
+            return
+
+        judge = {it.id: it.scores for it in items}
+        triples = [(s.run_item_id, s.category, s.score) for s in scores]
+        reports = calibration_report(judge_scores=judge, human_scores=triples, threshold=threshold)
+
+        click.echo(f"calibration report for run_id={run_id}, threshold={threshold:.2f}")
+        click.echo("")
+        click.echo(
+            f"{'category':<24} {'n':>4} {'agreement':>10} {'mae':>8} "
+            f"{'judge_mean':>11} {'human_mean':>11}"
+        )
+        for r in reports:
+            click.echo(
+                f"{r.category:<24} {r.n:>4} {r.agreement_rate:>10.4f} {r.mae:>8.4f} "
+                f"{r.judge_mean:>11.4f} {r.human_mean:>11.4f}"
+            )
+
+    asyncio.run(_run())
+
+
 if __name__ == "__main__":
     main()

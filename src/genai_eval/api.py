@@ -18,6 +18,7 @@ from sqlalchemy import desc, select
 from starlette.responses import Response
 
 from genai_eval.models import (
+    HumanScore,
     ModelVersion,
     Run,
     RunItem,
@@ -319,6 +320,130 @@ async def get_trends(
                     }
                 )
         return {"points": points, "count": len(points)}
+
+
+# ---- human scoring ----
+
+
+class HumanScoreRequest(BaseModel):
+    """Request body for ``POST /v1/runs/{run_id}/items/{idx}/human-score``."""
+
+    score: float
+    category: str = "pass"
+    rater: str = "anonymous"
+    notes: str | None = None
+
+
+class HumanScoreDTO(BaseModel):
+    id: int
+    run_id: int
+    run_item_id: int
+    category: str
+    score: float
+    rater: str
+    notes: str | None
+    created_at: datetime
+
+
+class DisagreementDTO(BaseModel):
+    run_item_id: int
+    task_type: str
+    language: str
+    example_id: str
+    judge_pass: float
+    human_mean: float
+    abs_delta: float
+    n_human_scores: int
+
+
+async def _resolve_run_item(session: Any, run_id: int, idx: int) -> RunItem:
+    """Resolve the ``idx``-th item in ``run_id`` (0-based, ordered by id)."""
+    stmt = select(RunItem).where(RunItem.run_id == run_id).order_by(RunItem.id).offset(idx).limit(1)
+    row = (await session.execute(stmt)).scalars().first()
+    if row is None:
+        raise HTTPException(status_code=404, detail=f"item idx={idx} not found in run {run_id}")
+    return row  # type: ignore[no-any-return]
+
+
+@app.post(
+    "/v1/runs/{run_id}/items/{idx}/human-score",
+    response_model=HumanScoreDTO,
+    status_code=201,
+)
+async def post_human_score(run_id: int, idx: int, payload: HumanScoreRequest) -> HumanScoreDTO:
+    """Record a human score for the ``idx``-th item of ``run_id``."""
+    if not (0.0 <= payload.score <= 1.0):
+        raise HTTPException(status_code=422, detail="score must be in [0, 1]")
+    Session = get_session_factory()
+    async with Session() as session:
+        item = await _resolve_run_item(session, run_id, idx)
+        hs = HumanScore(
+            run_id=run_id,
+            run_item_id=item.id,
+            category=payload.category,
+            score=payload.score,
+            rater=payload.rater,
+            notes=payload.notes,
+        )
+        session.add(hs)
+        await session.commit()
+        await session.refresh(hs)
+        return HumanScoreDTO(
+            id=hs.id,
+            run_id=hs.run_id,
+            run_item_id=hs.run_item_id,
+            category=hs.category,
+            score=hs.score,
+            rater=hs.rater,
+            notes=hs.notes,
+            created_at=hs.created_at,
+        )
+
+
+@app.get(
+    "/v1/runs/{run_id}/disagreements",
+    response_model=list[DisagreementDTO],
+)
+async def get_disagreements(
+    run_id: int,
+    category: str = Query(default="pass"),
+    threshold: float = Query(default=0.5, ge=0.0, le=1.0),
+) -> list[DisagreementDTO]:
+    """Items where the judge's pass-score disagrees with the human mean by more than ``threshold``."""
+    Session = get_session_factory()
+    async with Session() as session:
+        items_stmt = select(RunItem).where(RunItem.run_id == run_id).order_by(RunItem.id)
+        items = list((await session.execute(items_stmt)).scalars().all())
+        scores_stmt = select(HumanScore).where(
+            HumanScore.run_id == run_id,
+            HumanScore.category == category,
+        )
+        scores = list((await session.execute(scores_stmt)).scalars().all())
+        by_item: dict[int, list[float]] = {}
+        for s in scores:
+            by_item.setdefault(s.run_item_id, []).append(s.score)
+        out: list[DisagreementDTO] = []
+        for it in items:
+            human = by_item.get(it.id)
+            if not human:
+                continue
+            mean = sum(human) / len(human)
+            judge = float(it.scores.get("pass", 0.0))
+            delta = abs(judge - mean)
+            if delta > threshold:
+                out.append(
+                    DisagreementDTO(
+                        run_item_id=it.id,
+                        task_type=it.task_type,
+                        language=it.language,
+                        example_id=it.example_id,
+                        judge_pass=judge,
+                        human_mean=mean,
+                        abs_delta=delta,
+                        n_human_scores=len(human),
+                    )
+                )
+        return out
 
 
 # ---- helpers ----

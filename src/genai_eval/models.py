@@ -88,6 +88,26 @@ class RunItem(Base):
         self.scores_json = json.dumps(value, ensure_ascii=False)
 
 
+class HumanScore(Base):
+    """A single human-supplied score for a previously-evaluated item.
+
+    Multiple scores per (run, item) are allowed: a rater may submit several
+    rubric categories, and different raters may submit competing scores. The
+    calibration CLI averages across raters when computing agreement.
+    """
+
+    __tablename__ = "human_scores"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    run_id: Mapped[int] = mapped_column(ForeignKey("runs.id"), nullable=False)
+    run_item_id: Mapped[int] = mapped_column(ForeignKey("run_items.id"), nullable=False)
+    category: Mapped[str] = mapped_column(String(64), nullable=False, default="pass")
+    score: Mapped[float] = mapped_column(Float, nullable=False)
+    rater: Mapped[str] = mapped_column(String(64), nullable=False, default="anonymous")
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
 def _safe_loads(s: str) -> dict[str, Any]:
     try:
         v = json.loads(s) if s else {}
