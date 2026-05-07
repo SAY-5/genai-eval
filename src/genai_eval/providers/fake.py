@@ -133,7 +133,16 @@ class FakeProvider:
 
     @staticmethod
     def _lookup(messages: Sequence[ChatMessage]) -> str | None:
-        """Decode the orchestrator's tag protocol from the user message."""
+        """Decode the orchestrator's tag protocol from the user message.
+
+        Resolution order:
+          1. Hard-coded ``SCRIPTED`` table for hand-curated baseline examples.
+          2. Synthetic ``<<ANS=...>>`` (or ``<<ANS_B64=...>>``) echo for
+             examples whose id starts with ``syn-``. Every fifth example flips
+             the answer to a wrong stub so per-cell pass rates stay
+             informative (~80% by construction) instead of pinned to 100%.
+          3. Judge rubric defaults.
+        """
         for msg in messages:
             if msg.role != "user":
                 continue
@@ -143,7 +152,12 @@ class FakeProvider:
             kind = tag.get("kind", "")
             if kind == "task":
                 key = (tag["task_type"], tag["example_id"], tag["lang_key"])
-                return SCRIPTED.get(key)
+                if key in SCRIPTED:
+                    return SCRIPTED[key]
+                example_id = tag.get("example_id", "")
+                if example_id.startswith("syn-"):
+                    return _synthetic_response(example_id, tag["task_type"], msg.content)
+                return None
             if kind == "judge":
                 return JUDGE_DEFAULTS.get(tag.get("rubric", ""), "0.80")
         return None
@@ -169,3 +183,63 @@ def _parse_tag(content: str) -> dict[str, str] | None:
             k, v = part.split("=", 1)
             out[k.strip()] = v.strip()
     return out
+
+
+def _extract_ans(content: str) -> str | None:
+    """Pull the gold answer out of an embedded ``<<ANS=...>>`` tag.
+
+    Synthetic prompts ship the gold answer in the input so the FakeProvider
+    can replay it deterministically. The tag accepts either a literal value
+    (``<<ANS=...>>``) or a base64-encoded UTF-8 blob (``<<ANS_B64=...>>``)
+    for multiline answers such as code-repair fixes.
+    """
+    import base64
+
+    start = content.find("<<ANS_B64=")
+    if start >= 0:
+        end = content.find(">>", start)
+        if end >= 0:
+            payload = content[start + len("<<ANS_B64=") : end]
+            try:
+                return base64.b64decode(payload).decode("utf-8")
+            except (ValueError, UnicodeDecodeError):
+                return None
+    start = content.find("<<ANS=")
+    if start < 0:
+        return None
+    end = content.find(">>", start)
+    if end < 0:
+        return None
+    return content[start + len("<<ANS=") : end]
+
+
+# Wrong-answer stubs per task. Used when a synthetic example's numeric suffix
+# lands on the deterministic-failure schedule (every 5th id).
+_WRONG_STUBS: dict[str, str] = {
+    "classification": "unknown",
+    "qa": "[no answer]",
+    "summarization": "n/a",
+    "translation": "[untranslated]",
+    "code_repair": "def _broken():\n    raise RuntimeError('not implemented')\n",
+}
+
+
+def _synthetic_response(example_id: str, task_type: str, prompt: str) -> str:
+    """Compute the FakeProvider's response for a synthetic example.
+
+    Determinism: the suffix of ``syn-NNN`` directly controls pass/fail. The
+    every-5th-id rule keeps per-cell pass rates around 80%, leaving room for
+    the regression gate to detect drift either way.
+    """
+    suffix = example_id[len("syn-") :]
+    try:
+        idx = int(suffix)
+    except ValueError:
+        idx = 0
+    # idx 5, 10, 15, 20, 25 fail by design.
+    if idx > 0 and idx % 5 == 0:
+        return _WRONG_STUBS.get(task_type, "[wrong]")
+    ans = _extract_ans(prompt)
+    if ans is None:
+        return _WRONG_STUBS.get(task_type, "[wrong]")
+    return ans

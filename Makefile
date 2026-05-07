@@ -1,4 +1,4 @@
-.PHONY: help install dev migrate seed test test-int lint typecheck eval eval-smoke dashboard-dev dashboard-build up down clean
+.PHONY: help install dev migrate seed test test-int lint typecheck eval eval-smoke bench-regress dashboard-dev dashboard-build up down clean
 
 help:
 	@echo "Targets:"
@@ -12,6 +12,7 @@ help:
 	@echo "  typecheck       - mypy strict"
 	@echo "  eval            - run full eval against FakeProvider, write baseline"
 	@echo "  eval-smoke      - quick smoke run (subset)"
+	@echo "  bench-regress   - re-run eval and gate against committed baseline (30% per-cell drift)"
 	@echo "  dashboard-dev   - next dev"
 	@echo "  dashboard-build - next build"
 	@echo "  up              - docker compose up"
@@ -50,6 +51,10 @@ eval:
 
 eval-smoke:
 	poetry run genai-eval run --suite all --provider fake --model fake-large --output /tmp/eval-smoke.json --smoke
+
+bench-regress:
+	poetry run genai-eval run --suite all --provider fake --model fake-large --output /tmp/eval-bench.json
+	poetry run python scripts/bench_regress.py --fresh /tmp/eval-bench.json --baseline eval/baselines/fake-large.json --max-drift 0.30
 
 dashboard-dev:
 	cd dashboard && pnpm dev

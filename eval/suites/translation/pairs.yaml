@@ -1,46 +1,856 @@
 examples:
-  - id: trn-001
-    source: en
-    target: es
-    text: The cat is on the mat.
-    gold: El gato está sobre la alfombra.
-  - id: trn-002
-    source: en
-    target: es
-    text: It is raining heavily today.
-    gold: Hoy llueve mucho.
-  - id: trn-003
-    source: en
-    target: es
-    text: I like to read books.
-    gold: Me gusta leer libros.
-  - id: trn-001
-    source: en
-    target: ja
-    text: The cat is on the mat.
-    gold: 猫はマットの上にいます。
-  - id: trn-002
-    source: en
-    target: ja
-    text: It is raining heavily today.
-    gold: 今日は雨がよく降っています。
-  - id: trn-003
-    source: en
-    target: ja
-    text: I like to read books.
-    gold: 私は本を読むのが好きです。
-  - id: trn-001
-    source: es
-    target: en
-    text: El gato está sobre la alfombra.
-    gold: The cat is on the mat.
-  - id: trn-002
-    source: es
-    target: en
-    text: Hoy llueve mucho.
-    gold: It is raining heavily today.
-  - id: trn-003
-    source: es
-    target: en
-    text: Me gusta leer libros.
-    gold: I like to read books.
+- id: trn-001
+  source: en
+  target: es
+  text: The cat is on the mat.
+  gold: El gato está sobre la alfombra.
+- id: trn-002
+  source: en
+  target: es
+  text: It is raining heavily today.
+  gold: Hoy llueve mucho.
+- id: trn-003
+  source: en
+  target: es
+  text: I like to read books.
+  gold: Me gusta leer libros.
+- id: trn-001
+  source: en
+  target: ja
+  text: The cat is on the mat.
+  gold: 猫はマットの上にいます。
+- id: trn-002
+  source: en
+  target: ja
+  text: It is raining heavily today.
+  gold: 今日は雨がよく降っています。
+- id: trn-003
+  source: en
+  target: ja
+  text: I like to read books.
+  gold: 私は本を読むのが好きです。
+- id: trn-001
+  source: es
+  target: en
+  text: El gato está sobre la alfombra.
+  gold: The cat is on the mat.
+- id: trn-002
+  source: es
+  target: en
+  text: Hoy llueve mucho.
+  gold: It is raining heavily today.
+- id: trn-003
+  source: es
+  target: en
+  text: Me gusta leer libros.
+  gold: I like to read books.
+- id: syn-001
+  source: en
+  target: es
+  text: Good morning, friend. <<ANS=Buenos días, amigo.>>
+  gold: Buenos días, amigo.
+- id: syn-002
+  source: en
+  target: es
+  text: The library closes at six. <<ANS=La biblioteca cierra a las seis.>>
+  gold: La biblioteca cierra a las seis.
+- id: syn-003
+  source: en
+  target: es
+  text: She walks to school every day. <<ANS=Ella va caminando a la escuela todos los días.>>
+  gold: Ella va caminando a la escuela todos los días.
+- id: syn-004
+  source: en
+  target: es
+  text: It snowed in the mountains last night. <<ANS=Anoche nevó en las montañas.>>
+  gold: Anoche nevó en las montañas.
+- id: syn-005
+  source: en
+  target: es
+  text: My brother plays the guitar. <<ANS=Mi hermano toca la guitarra.>>
+  gold: Mi hermano toca la guitarra.
+- id: syn-006
+  source: en
+  target: es
+  text: They are watching a film together. <<ANS=Están viendo una película juntos.>>
+  gold: Están viendo una película juntos.
+- id: syn-007
+  source: en
+  target: es
+  text: The market opens at eight in the morning. <<ANS=El mercado abre a las ocho de la mañana.>>
+  gold: El mercado abre a las ocho de la mañana.
+- id: syn-008
+  source: en
+  target: es
+  text: Please send me the report tomorrow. <<ANS=Por favor, envíame el informe mañana.>>
+  gold: Por favor, envíame el informe mañana.
+- id: syn-009
+  source: en
+  target: es
+  text: We finished the project on time. <<ANS=Terminamos el proyecto a tiempo.>>
+  gold: Terminamos el proyecto a tiempo.
+- id: syn-010
+  source: en
+  target: es
+  text: The children were laughing in the garden. <<ANS=Los niños se reían en el jardín.>>
+  gold: Los niños se reían en el jardín.
+- id: syn-011
+  source: en
+  target: es
+  text: I forgot my umbrella at the office. <<ANS=Olvidé mi paraguas en la oficina.>>
+  gold: Olvidé mi paraguas en la oficina.
+- id: syn-012
+  source: en
+  target: es
+  text: The coffee is too hot to drink. <<ANS=El café está demasiado caliente para beberlo.>>
+  gold: El café está demasiado caliente para beberlo.
+- id: syn-013
+  source: en
+  target: es
+  text: He bought a red bicycle yesterday. <<ANS=Ayer compró una bicicleta roja.>>
+  gold: Ayer compró una bicicleta roja.
+- id: syn-014
+  source: en
+  target: es
+  text: She speaks three languages fluently. <<ANS=Ella habla tres idiomas con fluidez.>>
+  gold: Ella habla tres idiomas con fluidez.
+- id: syn-015
+  source: en
+  target: es
+  text: The river flows through the valley. <<ANS=El río fluye por el valle.>>
+  gold: El río fluye por el valle.
+- id: syn-016
+  source: en
+  target: es
+  text: The bakery is on the corner. <<ANS=La panadería está en la esquina.>>
+  gold: La panadería está en la esquina.
+- id: syn-017
+  source: en
+  target: es
+  text: My grandmother makes excellent soup. <<ANS=Mi abuela hace una sopa excelente.>>
+  gold: Mi abuela hace una sopa excelente.
+- id: syn-018
+  source: en
+  target: es
+  text: We will meet again next week. <<ANS=Nos veremos de nuevo la próxima semana.>>
+  gold: Nos veremos de nuevo la próxima semana.
+- id: syn-019
+  source: en
+  target: es
+  text: The bus arrived ten minutes late. <<ANS=El autobús llegó diez minutos tarde.>>
+  gold: El autobús llegó diez minutos tarde.
+- id: syn-020
+  source: en
+  target: es
+  text: She wrote a letter to her friend. <<ANS=Ella escribió una carta a su amiga.>>
+  gold: Ella escribió una carta a su amiga.
+- id: syn-021
+  source: en
+  target: es
+  text: The cat was sleeping on the windowsill. <<ANS=El gato dormía en el alféizar.>>
+  gold: El gato dormía en el alféizar.
+- id: syn-022
+  source: en
+  target: es
+  text: The teacher explained the lesson again. <<ANS=La profesora volvió a explicar la lección.>>
+  gold: La profesora volvió a explicar la lección.
+- id: syn-023
+  source: en
+  target: es
+  text: They built the bridge in three years. <<ANS=Construyeron el puente en tres años.>>
+  gold: Construyeron el puente en tres años.
+- id: syn-024
+  source: en
+  target: es
+  text: The garden is full of yellow flowers. <<ANS=El jardín está lleno de flores amarillas.>>
+  gold: El jardín está lleno de flores amarillas.
+- id: syn-025
+  source: en
+  target: es
+  text: I will call you when I arrive. <<ANS=Te llamaré cuando llegue.>>
+  gold: Te llamaré cuando llegue.
+- id: syn-026
+  source: en
+  target: es
+  text: The musician played until midnight. <<ANS=El músico tocó hasta medianoche.>>
+  gold: El músico tocó hasta medianoche.
+- id: syn-027
+  source: en
+  target: es
+  text: Our train leaves from platform four. <<ANS=Nuestro tren sale del andén cuatro.>>
+  gold: Nuestro tren sale del andén cuatro.
+- id: syn-001
+  source: en
+  target: ja
+  text: Good morning, friend. <<ANS=おはよう、友よ。>>
+  gold: おはよう、友よ。
+- id: syn-002
+  source: en
+  target: ja
+  text: The library closes at six. <<ANS=図書館は六時に閉まる。>>
+  gold: 図書館は六時に閉まる。
+- id: syn-003
+  source: en
+  target: ja
+  text: She walks to school every day. <<ANS=彼女は毎日学校まで歩く。>>
+  gold: 彼女は毎日学校まで歩く。
+- id: syn-004
+  source: en
+  target: ja
+  text: It snowed in the mountains last night. <<ANS=昨夜、山で雪が降った。>>
+  gold: 昨夜、山で雪が降った。
+- id: syn-005
+  source: en
+  target: ja
+  text: My brother plays the guitar. <<ANS=私の兄はギターを弾く。>>
+  gold: 私の兄はギターを弾く。
+- id: syn-006
+  source: en
+  target: ja
+  text: They are watching a film together. <<ANS=彼らは一緒に映画を見ている。>>
+  gold: 彼らは一緒に映画を見ている。
+- id: syn-007
+  source: en
+  target: ja
+  text: The market opens at eight in the morning. <<ANS=市場は朝八時に開く。>>
+  gold: 市場は朝八時に開く。
+- id: syn-008
+  source: en
+  target: ja
+  text: Please send me the report tomorrow. <<ANS=明日、報告書を送ってください。>>
+  gold: 明日、報告書を送ってください。
+- id: syn-009
+  source: en
+  target: ja
+  text: We finished the project on time. <<ANS=私たちは予定通りプロジェクトを終えた。>>
+  gold: 私たちは予定通りプロジェクトを終えた。
+- id: syn-010
+  source: en
+  target: ja
+  text: The children were laughing in the garden. <<ANS=子どもたちは庭で笑っていた。>>
+  gold: 子どもたちは庭で笑っていた。
+- id: syn-011
+  source: en
+  target: ja
+  text: I forgot my umbrella at the office. <<ANS=私は事務所に傘を忘れた。>>
+  gold: 私は事務所に傘を忘れた。
+- id: syn-012
+  source: en
+  target: ja
+  text: The coffee is too hot to drink. <<ANS=コーヒーは熱すぎて飲めない。>>
+  gold: コーヒーは熱すぎて飲めない。
+- id: syn-013
+  source: en
+  target: ja
+  text: He bought a red bicycle yesterday. <<ANS=彼は昨日、赤い自転車を買った。>>
+  gold: 彼は昨日、赤い自転車を買った。
+- id: syn-014
+  source: en
+  target: ja
+  text: She speaks three languages fluently. <<ANS=彼女は三つの言語を流暢に話す。>>
+  gold: 彼女は三つの言語を流暢に話す。
+- id: syn-015
+  source: en
+  target: ja
+  text: The river flows through the valley. <<ANS=川は谷を流れる。>>
+  gold: 川は谷を流れる。
+- id: syn-016
+  source: en
+  target: ja
+  text: The bakery is on the corner. <<ANS=パン屋は角にある。>>
+  gold: パン屋は角にある。
+- id: syn-017
+  source: en
+  target: ja
+  text: My grandmother makes excellent soup. <<ANS=私の祖母は素晴らしいスープを作る。>>
+  gold: 私の祖母は素晴らしいスープを作る。
+- id: syn-018
+  source: en
+  target: ja
+  text: We will meet again next week. <<ANS=私たちは来週また会う。>>
+  gold: 私たちは来週また会う。
+- id: syn-019
+  source: en
+  target: ja
+  text: The bus arrived ten minutes late. <<ANS=バスは十分遅れて到着した。>>
+  gold: バスは十分遅れて到着した。
+- id: syn-020
+  source: en
+  target: ja
+  text: She wrote a letter to her friend. <<ANS=彼女は友達に手紙を書いた。>>
+  gold: 彼女は友達に手紙を書いた。
+- id: syn-021
+  source: en
+  target: ja
+  text: The cat was sleeping on the windowsill. <<ANS=猫は窓辺で眠っていた。>>
+  gold: 猫は窓辺で眠っていた。
+- id: syn-022
+  source: en
+  target: ja
+  text: The teacher explained the lesson again. <<ANS=先生は授業をもう一度説明した。>>
+  gold: 先生は授業をもう一度説明した。
+- id: syn-023
+  source: en
+  target: ja
+  text: They built the bridge in three years. <<ANS=彼らは三年で橋を建てた。>>
+  gold: 彼らは三年で橋を建てた。
+- id: syn-024
+  source: en
+  target: ja
+  text: The garden is full of yellow flowers. <<ANS=庭は黄色い花でいっぱいだ。>>
+  gold: 庭は黄色い花でいっぱいだ。
+- id: syn-025
+  source: en
+  target: ja
+  text: I will call you when I arrive. <<ANS=着いたら電話します。>>
+  gold: 着いたら電話します。
+- id: syn-026
+  source: en
+  target: ja
+  text: The musician played until midnight. <<ANS=音楽家は真夜中まで演奏した。>>
+  gold: 音楽家は真夜中まで演奏した。
+- id: syn-027
+  source: en
+  target: ja
+  text: Our train leaves from platform four. <<ANS=私たちの列車は四番線から出る。>>
+  gold: 私たちの列車は四番線から出る。
+- id: syn-001
+  source: es
+  target: en
+  text: Buenos días, amigo. <<ANS=Good morning, friend.>>
+  gold: Good morning, friend.
+- id: syn-002
+  source: es
+  target: en
+  text: La biblioteca cierra a las seis. <<ANS=The library closes at six.>>
+  gold: The library closes at six.
+- id: syn-003
+  source: es
+  target: en
+  text: Ella va caminando a la escuela todos los días. <<ANS=She walks to school every day.>>
+  gold: She walks to school every day.
+- id: syn-004
+  source: es
+  target: en
+  text: Anoche nevó en las montañas. <<ANS=It snowed in the mountains last night.>>
+  gold: It snowed in the mountains last night.
+- id: syn-005
+  source: es
+  target: en
+  text: Mi hermano toca la guitarra. <<ANS=My brother plays the guitar.>>
+  gold: My brother plays the guitar.
+- id: syn-006
+  source: es
+  target: en
+  text: Están viendo una película juntos. <<ANS=They are watching a film together.>>
+  gold: They are watching a film together.
+- id: syn-007
+  source: es
+  target: en
+  text: El mercado abre a las ocho de la mañana. <<ANS=The market opens at eight in the morning.>>
+  gold: The market opens at eight in the morning.
+- id: syn-008
+  source: es
+  target: en
+  text: Por favor, envíame el informe mañana. <<ANS=Please send me the report tomorrow.>>
+  gold: Please send me the report tomorrow.
+- id: syn-009
+  source: es
+  target: en
+  text: Terminamos el proyecto a tiempo. <<ANS=We finished the project on time.>>
+  gold: We finished the project on time.
+- id: syn-010
+  source: es
+  target: en
+  text: Los niños se reían en el jardín. <<ANS=The children were laughing in the garden.>>
+  gold: The children were laughing in the garden.
+- id: syn-011
+  source: es
+  target: en
+  text: Olvidé mi paraguas en la oficina. <<ANS=I forgot my umbrella at the office.>>
+  gold: I forgot my umbrella at the office.
+- id: syn-012
+  source: es
+  target: en
+  text: El café está demasiado caliente para beberlo. <<ANS=The coffee is too hot to drink.>>
+  gold: The coffee is too hot to drink.
+- id: syn-013
+  source: es
+  target: en
+  text: Ayer compró una bicicleta roja. <<ANS=He bought a red bicycle yesterday.>>
+  gold: He bought a red bicycle yesterday.
+- id: syn-014
+  source: es
+  target: en
+  text: Ella habla tres idiomas con fluidez. <<ANS=She speaks three languages fluently.>>
+  gold: She speaks three languages fluently.
+- id: syn-015
+  source: es
+  target: en
+  text: El río fluye por el valle. <<ANS=The river flows through the valley.>>
+  gold: The river flows through the valley.
+- id: syn-016
+  source: es
+  target: en
+  text: La panadería está en la esquina. <<ANS=The bakery is on the corner.>>
+  gold: The bakery is on the corner.
+- id: syn-017
+  source: es
+  target: en
+  text: Mi abuela hace una sopa excelente. <<ANS=My grandmother makes excellent soup.>>
+  gold: My grandmother makes excellent soup.
+- id: syn-018
+  source: es
+  target: en
+  text: Nos veremos de nuevo la próxima semana. <<ANS=We will meet again next week.>>
+  gold: We will meet again next week.
+- id: syn-019
+  source: es
+  target: en
+  text: El autobús llegó diez minutos tarde. <<ANS=The bus arrived ten minutes late.>>
+  gold: The bus arrived ten minutes late.
+- id: syn-020
+  source: es
+  target: en
+  text: Ella escribió una carta a su amiga. <<ANS=She wrote a letter to her friend.>>
+  gold: She wrote a letter to her friend.
+- id: syn-021
+  source: es
+  target: en
+  text: El gato dormía en el alféizar. <<ANS=The cat was sleeping on the windowsill.>>
+  gold: The cat was sleeping on the windowsill.
+- id: syn-022
+  source: es
+  target: en
+  text: La profesora volvió a explicar la lección. <<ANS=The teacher explained the lesson again.>>
+  gold: The teacher explained the lesson again.
+- id: syn-023
+  source: es
+  target: en
+  text: Construyeron el puente en tres años. <<ANS=They built the bridge in three years.>>
+  gold: They built the bridge in three years.
+- id: syn-024
+  source: es
+  target: en
+  text: El jardín está lleno de flores amarillas. <<ANS=The garden is full of yellow flowers.>>
+  gold: The garden is full of yellow flowers.
+- id: syn-025
+  source: es
+  target: en
+  text: Te llamaré cuando llegue. <<ANS=I will call you when I arrive.>>
+  gold: I will call you when I arrive.
+- id: syn-026
+  source: es
+  target: en
+  text: El músico tocó hasta medianoche. <<ANS=The musician played until midnight.>>
+  gold: The musician played until midnight.
+- id: syn-027
+  source: es
+  target: en
+  text: Nuestro tren sale del andén cuatro. <<ANS=Our train leaves from platform four.>>
+  gold: Our train leaves from platform four.
+- id: syn-001
+  source: es
+  target: ja
+  text: Buenos días, amigo. <<ANS=おはよう、友よ。>>
+  gold: おはよう、友よ。
+- id: syn-002
+  source: es
+  target: ja
+  text: La biblioteca cierra a las seis. <<ANS=図書館は六時に閉まる。>>
+  gold: 図書館は六時に閉まる。
+- id: syn-003
+  source: es
+  target: ja
+  text: Ella va caminando a la escuela todos los días. <<ANS=彼女は毎日学校まで歩く。>>
+  gold: 彼女は毎日学校まで歩く。
+- id: syn-004
+  source: es
+  target: ja
+  text: Anoche nevó en las montañas. <<ANS=昨夜、山で雪が降った。>>
+  gold: 昨夜、山で雪が降った。
+- id: syn-005
+  source: es
+  target: ja
+  text: Mi hermano toca la guitarra. <<ANS=私の兄はギターを弾く。>>
+  gold: 私の兄はギターを弾く。
+- id: syn-006
+  source: es
+  target: ja
+  text: Están viendo una película juntos. <<ANS=彼らは一緒に映画を見ている。>>
+  gold: 彼らは一緒に映画を見ている。
+- id: syn-007
+  source: es
+  target: ja
+  text: El mercado abre a las ocho de la mañana. <<ANS=市場は朝八時に開く。>>
+  gold: 市場は朝八時に開く。
+- id: syn-008
+  source: es
+  target: ja
+  text: Por favor, envíame el informe mañana. <<ANS=明日、報告書を送ってください。>>
+  gold: 明日、報告書を送ってください。
+- id: syn-009
+  source: es
+  target: ja
+  text: Terminamos el proyecto a tiempo. <<ANS=私たちは予定通りプロジェクトを終えた。>>
+  gold: 私たちは予定通りプロジェクトを終えた。
+- id: syn-010
+  source: es
+  target: ja
+  text: Los niños se reían en el jardín. <<ANS=子どもたちは庭で笑っていた。>>
+  gold: 子どもたちは庭で笑っていた。
+- id: syn-011
+  source: es
+  target: ja
+  text: Olvidé mi paraguas en la oficina. <<ANS=私は事務所に傘を忘れた。>>
+  gold: 私は事務所に傘を忘れた。
+- id: syn-012
+  source: es
+  target: ja
+  text: El café está demasiado caliente para beberlo. <<ANS=コーヒーは熱すぎて飲めない。>>
+  gold: コーヒーは熱すぎて飲めない。
+- id: syn-013
+  source: es
+  target: ja
+  text: Ayer compró una bicicleta roja. <<ANS=彼は昨日、赤い自転車を買った。>>
+  gold: 彼は昨日、赤い自転車を買った。
+- id: syn-014
+  source: es
+  target: ja
+  text: Ella habla tres idiomas con fluidez. <<ANS=彼女は三つの言語を流暢に話す。>>
+  gold: 彼女は三つの言語を流暢に話す。
+- id: syn-015
+  source: es
+  target: ja
+  text: El río fluye por el valle. <<ANS=川は谷を流れる。>>
+  gold: 川は谷を流れる。
+- id: syn-016
+  source: es
+  target: ja
+  text: La panadería está en la esquina. <<ANS=パン屋は角にある。>>
+  gold: パン屋は角にある。
+- id: syn-017
+  source: es
+  target: ja
+  text: Mi abuela hace una sopa excelente. <<ANS=私の祖母は素晴らしいスープを作る。>>
+  gold: 私の祖母は素晴らしいスープを作る。
+- id: syn-018
+  source: es
+  target: ja
+  text: Nos veremos de nuevo la próxima semana. <<ANS=私たちは来週また会う。>>
+  gold: 私たちは来週また会う。
+- id: syn-019
+  source: es
+  target: ja
+  text: El autobús llegó diez minutos tarde. <<ANS=バスは十分遅れて到着した。>>
+  gold: バスは十分遅れて到着した。
+- id: syn-020
+  source: es
+  target: ja
+  text: Ella escribió una carta a su amiga. <<ANS=彼女は友達に手紙を書いた。>>
+  gold: 彼女は友達に手紙を書いた。
+- id: syn-021
+  source: es
+  target: ja
+  text: El gato dormía en el alféizar. <<ANS=猫は窓辺で眠っていた。>>
+  gold: 猫は窓辺で眠っていた。
+- id: syn-022
+  source: es
+  target: ja
+  text: La profesora volvió a explicar la lección. <<ANS=先生は授業をもう一度説明した。>>
+  gold: 先生は授業をもう一度説明した。
+- id: syn-023
+  source: es
+  target: ja
+  text: Construyeron el puente en tres años. <<ANS=彼らは三年で橋を建てた。>>
+  gold: 彼らは三年で橋を建てた。
+- id: syn-024
+  source: es
+  target: ja
+  text: El jardín está lleno de flores amarillas. <<ANS=庭は黄色い花でいっぱいだ。>>
+  gold: 庭は黄色い花でいっぱいだ。
+- id: syn-025
+  source: es
+  target: ja
+  text: Te llamaré cuando llegue. <<ANS=着いたら電話します。>>
+  gold: 着いたら電話します。
+- id: syn-026
+  source: es
+  target: ja
+  text: El músico tocó hasta medianoche. <<ANS=音楽家は真夜中まで演奏した。>>
+  gold: 音楽家は真夜中まで演奏した。
+- id: syn-027
+  source: es
+  target: ja
+  text: Nuestro tren sale del andén cuatro. <<ANS=私たちの列車は四番線から出る。>>
+  gold: 私たちの列車は四番線から出る。
+- id: syn-001
+  source: ja
+  target: en
+  text: おはよう、友よ。 <<ANS=Good morning, friend.>>
+  gold: Good morning, friend.
+- id: syn-002
+  source: ja
+  target: en
+  text: 図書館は六時に閉まる。 <<ANS=The library closes at six.>>
+  gold: The library closes at six.
+- id: syn-003
+  source: ja
+  target: en
+  text: 彼女は毎日学校まで歩く。 <<ANS=She walks to school every day.>>
+  gold: She walks to school every day.
+- id: syn-004
+  source: ja
+  target: en
+  text: 昨夜、山で雪が降った。 <<ANS=It snowed in the mountains last night.>>
+  gold: It snowed in the mountains last night.
+- id: syn-005
+  source: ja
+  target: en
+  text: 私の兄はギターを弾く。 <<ANS=My brother plays the guitar.>>
+  gold: My brother plays the guitar.
+- id: syn-006
+  source: ja
+  target: en
+  text: 彼らは一緒に映画を見ている。 <<ANS=They are watching a film together.>>
+  gold: They are watching a film together.
+- id: syn-007
+  source: ja
+  target: en
+  text: 市場は朝八時に開く。 <<ANS=The market opens at eight in the morning.>>
+  gold: The market opens at eight in the morning.
+- id: syn-008
+  source: ja
+  target: en
+  text: 明日、報告書を送ってください。 <<ANS=Please send me the report tomorrow.>>
+  gold: Please send me the report tomorrow.
+- id: syn-009
+  source: ja
+  target: en
+  text: 私たちは予定通りプロジェクトを終えた。 <<ANS=We finished the project on time.>>
+  gold: We finished the project on time.
+- id: syn-010
+  source: ja
+  target: en
+  text: 子どもたちは庭で笑っていた。 <<ANS=The children were laughing in the garden.>>
+  gold: The children were laughing in the garden.
+- id: syn-011
+  source: ja
+  target: en
+  text: 私は事務所に傘を忘れた。 <<ANS=I forgot my umbrella at the office.>>
+  gold: I forgot my umbrella at the office.
+- id: syn-012
+  source: ja
+  target: en
+  text: コーヒーは熱すぎて飲めない。 <<ANS=The coffee is too hot to drink.>>
+  gold: The coffee is too hot to drink.
+- id: syn-013
+  source: ja
+  target: en
+  text: 彼は昨日、赤い自転車を買った。 <<ANS=He bought a red bicycle yesterday.>>
+  gold: He bought a red bicycle yesterday.
+- id: syn-014
+  source: ja
+  target: en
+  text: 彼女は三つの言語を流暢に話す。 <<ANS=She speaks three languages fluently.>>
+  gold: She speaks three languages fluently.
+- id: syn-015
+  source: ja
+  target: en
+  text: 川は谷を流れる。 <<ANS=The river flows through the valley.>>
+  gold: The river flows through the valley.
+- id: syn-016
+  source: ja
+  target: en
+  text: パン屋は角にある。 <<ANS=The bakery is on the corner.>>
+  gold: The bakery is on the corner.
+- id: syn-017
+  source: ja
+  target: en
+  text: 私の祖母は素晴らしいスープを作る。 <<ANS=My grandmother makes excellent soup.>>
+  gold: My grandmother makes excellent soup.
+- id: syn-018
+  source: ja
+  target: en
+  text: 私たちは来週また会う。 <<ANS=We will meet again next week.>>
+  gold: We will meet again next week.
+- id: syn-019
+  source: ja
+  target: en
+  text: バスは十分遅れて到着した。 <<ANS=The bus arrived ten minutes late.>>
+  gold: The bus arrived ten minutes late.
+- id: syn-020
+  source: ja
+  target: en
+  text: 彼女は友達に手紙を書いた。 <<ANS=She wrote a letter to her friend.>>
+  gold: She wrote a letter to her friend.
+- id: syn-021
+  source: ja
+  target: en
+  text: 猫は窓辺で眠っていた。 <<ANS=The cat was sleeping on the windowsill.>>
+  gold: The cat was sleeping on the windowsill.
+- id: syn-022
+  source: ja
+  target: en
+  text: 先生は授業をもう一度説明した。 <<ANS=The teacher explained the lesson again.>>
+  gold: The teacher explained the lesson again.
+- id: syn-023
+  source: ja
+  target: en
+  text: 彼らは三年で橋を建てた。 <<ANS=They built the bridge in three years.>>
+  gold: They built the bridge in three years.
+- id: syn-024
+  source: ja
+  target: en
+  text: 庭は黄色い花でいっぱいだ。 <<ANS=The garden is full of yellow flowers.>>
+  gold: The garden is full of yellow flowers.
+- id: syn-025
+  source: ja
+  target: en
+  text: 着いたら電話します。 <<ANS=I will call you when I arrive.>>
+  gold: I will call you when I arrive.
+- id: syn-026
+  source: ja
+  target: en
+  text: 音楽家は真夜中まで演奏した。 <<ANS=The musician played until midnight.>>
+  gold: The musician played until midnight.
+- id: syn-027
+  source: ja
+  target: en
+  text: 私たちの列車は四番線から出る。 <<ANS=Our train leaves from platform four.>>
+  gold: Our train leaves from platform four.
+- id: syn-001
+  source: ja
+  target: es
+  text: おはよう、友よ。 <<ANS=Buenos días, amigo.>>
+  gold: Buenos días, amigo.
+- id: syn-002
+  source: ja
+  target: es
+  text: 図書館は六時に閉まる。 <<ANS=La biblioteca cierra a las seis.>>
+  gold: La biblioteca cierra a las seis.
+- id: syn-003
+  source: ja
+  target: es
+  text: 彼女は毎日学校まで歩く。 <<ANS=Ella va caminando a la escuela todos los días.>>
+  gold: Ella va caminando a la escuela todos los días.
+- id: syn-004
+  source: ja
+  target: es
+  text: 昨夜、山で雪が降った。 <<ANS=Anoche nevó en las montañas.>>
+  gold: Anoche nevó en las montañas.
+- id: syn-005
+  source: ja
+  target: es
+  text: 私の兄はギターを弾く。 <<ANS=Mi hermano toca la guitarra.>>
+  gold: Mi hermano toca la guitarra.
+- id: syn-006
+  source: ja
+  target: es
+  text: 彼らは一緒に映画を見ている。 <<ANS=Están viendo una película juntos.>>
+  gold: Están viendo una película juntos.
+- id: syn-007
+  source: ja
+  target: es
+  text: 市場は朝八時に開く。 <<ANS=El mercado abre a las ocho de la mañana.>>
+  gold: El mercado abre a las ocho de la mañana.
+- id: syn-008
+  source: ja
+  target: es
+  text: 明日、報告書を送ってください。 <<ANS=Por favor, envíame el informe mañana.>>
+  gold: Por favor, envíame el informe mañana.
+- id: syn-009
+  source: ja
+  target: es
+  text: 私たちは予定通りプロジェクトを終えた。 <<ANS=Terminamos el proyecto a tiempo.>>
+  gold: Terminamos el proyecto a tiempo.
+- id: syn-010
+  source: ja
+  target: es
+  text: 子どもたちは庭で笑っていた。 <<ANS=Los niños se reían en el jardín.>>
+  gold: Los niños se reían en el jardín.
+- id: syn-011
+  source: ja
+  target: es
+  text: 私は事務所に傘を忘れた。 <<ANS=Olvidé mi paraguas en la oficina.>>
+  gold: Olvidé mi paraguas en la oficina.
+- id: syn-012
+  source: ja
+  target: es
+  text: コーヒーは熱すぎて飲めない。 <<ANS=El café está demasiado caliente para beberlo.>>
+  gold: El café está demasiado caliente para beberlo.
+- id: syn-013
+  source: ja
+  target: es
+  text: 彼は昨日、赤い自転車を買った。 <<ANS=Ayer compró una bicicleta roja.>>
+  gold: Ayer compró una bicicleta roja.
+- id: syn-014
+  source: ja
+  target: es
+  text: 彼女は三つの言語を流暢に話す。 <<ANS=Ella habla tres idiomas con fluidez.>>
+  gold: Ella habla tres idiomas con fluidez.
+- id: syn-015
+  source: ja
+  target: es
+  text: 川は谷を流れる。 <<ANS=El río fluye por el valle.>>
+  gold: El río fluye por el valle.
+- id: syn-016
+  source: ja
+  target: es
+  text: パン屋は角にある。 <<ANS=La panadería está en la esquina.>>
+  gold: La panadería está en la esquina.
+- id: syn-017
+  source: ja
+  target: es
+  text: 私の祖母は素晴らしいスープを作る。 <<ANS=Mi abuela hace una sopa excelente.>>
+  gold: Mi abuela hace una sopa excelente.
+- id: syn-018
+  source: ja
+  target: es
+  text: 私たちは来週また会う。 <<ANS=Nos veremos de nuevo la próxima semana.>>
+  gold: Nos veremos de nuevo la próxima semana.
+- id: syn-019
+  source: ja
+  target: es
+  text: バスは十分遅れて到着した。 <<ANS=El autobús llegó diez minutos tarde.>>
+  gold: El autobús llegó diez minutos tarde.
+- id: syn-020
+  source: ja
+  target: es
+  text: 彼女は友達に手紙を書いた。 <<ANS=Ella escribió una carta a su amiga.>>
+  gold: Ella escribió una carta a su amiga.
+- id: syn-021
+  source: ja
+  target: es
+  text: 猫は窓辺で眠っていた。 <<ANS=El gato dormía en el alféizar.>>
+  gold: El gato dormía en el alféizar.
+- id: syn-022
+  source: ja
+  target: es
+  text: 先生は授業をもう一度説明した。 <<ANS=La profesora volvió a explicar la lección.>>
+  gold: La profesora volvió a explicar la lección.
+- id: syn-023
+  source: ja
+  target: es
+  text: 彼らは三年で橋を建てた。 <<ANS=Construyeron el puente en tres años.>>
+  gold: Construyeron el puente en tres años.
+- id: syn-024
+  source: ja
+  target: es
+  text: 庭は黄色い花でいっぱいだ。 <<ANS=El jardín está lleno de flores amarillas.>>
+  gold: El jardín está lleno de flores amarillas.
+- id: syn-025
+  source: ja
+  target: es
+  text: 着いたら電話します。 <<ANS=Te llamaré cuando llegue.>>
+  gold: Te llamaré cuando llegue.
+- id: syn-026
+  source: ja
+  target: es
+  text: 音楽家は真夜中まで演奏した。 <<ANS=El músico tocó hasta medianoche.>>
+  gold: El músico tocó hasta medianoche.
+- id: syn-027
+  source: ja
+  target: es
+  text: 私たちの列車は四番線から出る。 <<ANS=Nuestro tren sale del andén cuatro.>>
+  gold: Nuestro tren sale del andén cuatro.

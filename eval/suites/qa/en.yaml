@@ -1,19 +1,235 @@
 examples:
-  - id: qa-001
-    input:
-      passage: France is a country in Western Europe. Its capital is Paris, located on the Seine river.
-      question: What is the capital of France?
-    gold:
-      answer: Paris
-  - id: qa-002
-    input:
-      passage: Apollo 11 landed on the Moon on July 20, 1969, with astronauts Neil Armstrong and Buzz Aldrin.
-      question: In what year did Apollo 11 land on the Moon?
-    gold:
-      answer: "1969"
-  - id: qa-003
-    input:
-      passage: Kyoto served as the imperial capital of Japan for over a thousand years before the capital moved to Tokyo in 1868.
-      question: Which city was the imperial capital of Japan before 1868?
-    gold:
-      answer: Kyoto
+- id: qa-001
+  input:
+    passage: France is a country in Western Europe. Its capital is Paris, located on the Seine river.
+    question: What is the capital of France?
+  gold:
+    answer: Paris
+- id: qa-002
+  input:
+    passage: Apollo 11 landed on the Moon on July 20, 1969, with astronauts Neil Armstrong and Buzz Aldrin.
+    question: In what year did Apollo 11 land on the Moon?
+  gold:
+    answer: '1969'
+- id: qa-003
+  input:
+    passage: Kyoto served as the imperial capital of Japan for over a thousand years before the capital moved to Tokyo in 1868.
+    question: Which city was the imperial capital of Japan before 1868?
+  gold:
+    answer: Kyoto
+- id: syn-001
+  input:
+    passage: 'Reference fact: Lake Baikal. <<ANS=Lake Baikal>>'
+    question: Which lake is the deepest freshwater lake on Earth?
+  gold:
+    answer: Lake Baikal
+  metadata:
+    slug: lake-baikal
+- id: syn-002
+  input:
+    passage: 'Reference fact: Mount Everest. <<ANS=Mount Everest>>'
+    question: What is the tallest mountain above sea level?
+  gold:
+    answer: Mount Everest
+  metadata:
+    slug: mount-everest
+- id: syn-003
+  input:
+    passage: 'Reference fact: The Amazon. <<ANS=The Amazon>>'
+    question: Which river carries the largest volume of water?
+  gold:
+    answer: The Amazon
+  metadata:
+    slug: amazon-river
+- id: syn-004
+  input:
+    passage: 'Reference fact: The Sahara. <<ANS=The Sahara>>'
+    question: Which is the largest hot desert?
+  gold:
+    answer: The Sahara
+  metadata:
+    slug: sahara-desert
+- id: syn-005
+  input:
+    passage: 'Reference fact: The Great Wall of China. <<ANS=The Great Wall of China>>'
+    question: Which long defensive wall winds across northern China?
+  gold:
+    answer: The Great Wall of China
+  metadata:
+    slug: great-wall
+- id: syn-006
+  input:
+    passage: 'Reference fact: Leonardo da Vinci. <<ANS=Leonardo da Vinci>>'
+    question: Who painted the Mona Lisa?
+  gold:
+    answer: Leonardo da Vinci
+  metadata:
+    slug: leonardo
+- id: syn-007
+  input:
+    passage: 'Reference fact: William Shakespeare. <<ANS=William Shakespeare>>'
+    question: Who wrote the play Hamlet?
+  gold:
+    answer: William Shakespeare
+  metadata:
+    slug: shakespeare
+- id: syn-008
+  input:
+    passage: 'Reference fact: Marie Curie. <<ANS=Marie Curie>>'
+    question: Who won Nobel Prizes in both physics and chemistry?
+  gold:
+    answer: Marie Curie
+  metadata:
+    slug: marie-curie
+- id: syn-009
+  input:
+    passage: 'Reference fact: Ada Lovelace. <<ANS=Ada Lovelace>>'
+    question: Who is regarded as the first computer programmer?
+  gold:
+    answer: Ada Lovelace
+  metadata:
+    slug: ada-lovelace
+- id: syn-010
+  input:
+    passage: 'Reference fact: Tokyo. <<ANS=Tokyo>>'
+    question: What is the capital of Japan?
+  gold:
+    answer: Tokyo
+  metadata:
+    slug: tokyo
+- id: syn-011
+  input:
+    passage: 'Reference fact: Berlin. <<ANS=Berlin>>'
+    question: What is the capital of Germany?
+  gold:
+    answer: Berlin
+  metadata:
+    slug: berlin
+- id: syn-012
+  input:
+    passage: 'Reference fact: Ottawa. <<ANS=Ottawa>>'
+    question: What is the capital of Canada?
+  gold:
+    answer: Ottawa
+  metadata:
+    slug: ottawa
+- id: syn-013
+  input:
+    passage: 'Reference fact: Canberra. <<ANS=Canberra>>'
+    question: What is the capital of Australia?
+  gold:
+    answer: Canberra
+  metadata:
+    slug: canberra
+- id: syn-014
+  input:
+    passage: 'Reference fact: Brasília. <<ANS=Brasília>>'
+    question: What is the capital of Brazil?
+  gold:
+    answer: Brasília
+  metadata:
+    slug: brasilia
+- id: syn-015
+  input:
+    passage: 'Reference fact: Nairobi. <<ANS=Nairobi>>'
+    question: What is the capital of Kenya?
+  gold:
+    answer: Nairobi
+  metadata:
+    slug: nairobi
+- id: syn-016
+  input:
+    passage: 'Reference fact: Neil Armstrong. <<ANS=Neil Armstrong>>'
+    question: Who was the first person to walk on the Moon?
+  gold:
+    answer: Neil Armstrong
+  metadata:
+    slug: neil-armstrong
+- id: syn-017
+  input:
+    passage: 'Reference fact: Alan Turing. <<ANS=Alan Turing>>'
+    question: Who proposed a famous test for machine intelligence?
+  gold:
+    answer: Alan Turing
+  metadata:
+    slug: alan-turing
+- id: syn-018
+  input:
+    passage: 'Reference fact: Charles Darwin. <<ANS=Charles Darwin>>'
+    question: Who proposed the theory of evolution by natural selection?
+  gold:
+    answer: Charles Darwin
+  metadata:
+    slug: darwin
+- id: syn-019
+  input:
+    passage: 'Reference fact: Isaac Newton. <<ANS=Isaac Newton>>'
+    question: Who formulated the three laws of motion?
+  gold:
+    answer: Isaac Newton
+  metadata:
+    slug: newton
+- id: syn-020
+  input:
+    passage: 'Reference fact: Albert Einstein. <<ANS=Albert Einstein>>'
+    question: Who developed the theory of general relativity?
+  gold:
+    answer: Albert Einstein
+  metadata:
+    slug: einstein
+- id: syn-021
+  input:
+    passage: 'Reference fact: The Pacific Ocean. <<ANS=The Pacific Ocean>>'
+    question: Which is the largest ocean on Earth?
+  gold:
+    answer: The Pacific Ocean
+  metadata:
+    slug: pacific
+- id: syn-022
+  input:
+    passage: 'Reference fact: The Nile. <<ANS=The Nile>>'
+    question: Which river is widely considered the longest in the world?
+  gold:
+    answer: The Nile
+  metadata:
+    slug: nile
+- id: syn-023
+  input:
+    passage: 'Reference fact: Antarctica. <<ANS=Antarctica>>'
+    question: Which is the coldest continent?
+  gold:
+    answer: Antarctica
+  metadata:
+    slug: antarctica
+- id: syn-024
+  input:
+    passage: 'Reference fact: Vatican City. <<ANS=Vatican City>>'
+    question: Which is the smallest internationally recognised country?
+  gold:
+    answer: Vatican City
+  metadata:
+    slug: vatican
+- id: syn-025
+  input:
+    passage: 'Reference fact: Russia. <<ANS=Russia>>'
+    question: Which is the country with the largest land area?
+  gold:
+    answer: Russia
+  metadata:
+    slug: russia
+- id: syn-026
+  input:
+    passage: 'Reference fact: India. <<ANS=India>>'
+    question: Which country has the largest population in 2024?
+  gold:
+    answer: India
+  metadata:
+    slug: china
+- id: syn-027
+  input:
+    passage: 'Reference fact: The Louvre. <<ANS=The Louvre>>'
+    question: Which Paris museum houses the Mona Lisa?
+  gold:
+    answer: The Louvre
+  metadata:
+    slug: louvre

@@ -23,7 +23,9 @@ SUITES_DIR = Path(__file__).resolve().parent.parent.parent / "eval" / "suites"
 
 def test_summarization_load() -> None:
     examples = summarization.load_suite("en", SUITES_DIR)
-    assert len(examples) == 3
+    # The hand-curated baseline carries three examples; the synthetic suite
+    # extension adds more on top. Either way the task type must be set.
+    assert len(examples) >= 3
     assert all(e.task_type == "summarization" for e in examples)
 
 
@@ -151,4 +153,4 @@ def test_code_repair_handles_runtime_error() -> None:
 @pytest.mark.parametrize("lang", ["en", "es", "ja"])
 def test_qa_load_all_languages(lang: str) -> None:
     examples = qa.load_suite(lang, SUITES_DIR)
-    assert len(examples) == 3
+    assert len(examples) >= 3

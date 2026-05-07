@@ -54,6 +54,38 @@ async def test_fake_provider_unknown_tag_falls_back_to_hash() -> None:
     assert res.text.startswith("[fake:")
 
 
+@pytest.mark.asyncio
+async def test_fake_provider_synthetic_echoes_ans_tag() -> None:
+    """Synthetic examples replay the gold from the embedded ANS tag."""
+    p = FakeProvider()
+    msgs = [
+        ChatMessage(
+            "user",
+            "<<TAG kind=task|task_type=qa|example_id=syn-001|lang_key=en>>\n"
+            "Passage: Reference fact: Paris. <<ANS=Paris>>\n"
+            "Question: What is the capital of France?",
+        )
+    ]
+    res = await p.chat(msgs, model="fake-large")
+    assert res.text == "Paris"
+
+
+@pytest.mark.asyncio
+async def test_fake_provider_synthetic_every_fifth_is_wrong() -> None:
+    """The 5th, 10th, ... synthetic ids deterministically return a wrong stub."""
+    p = FakeProvider()
+    msgs = [
+        ChatMessage(
+            "user",
+            "<<TAG kind=task|task_type=qa|example_id=syn-005|lang_key=en>>\n"
+            "Passage: Reference fact: Paris. <<ANS=Paris>>",
+        )
+    ]
+    res = await p.chat(msgs, model="fake-large")
+    assert res.text != "Paris"
+    assert "[no answer]" in res.text or "[wrong]" in res.text
+
+
 # ---- OpenAI (respx-mocked) ----
 
 

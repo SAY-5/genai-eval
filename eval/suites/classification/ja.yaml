@@ -1,17 +1,155 @@
-labels: [ポジティブ, ネガティブ, ニュートラル]
+labels:
+- ポジティブ
+- ネガティブ
+- ニュートラル
 examples:
-  - id: cls-001
-    input:
-      text: この映画は本当に良かった。温かくて、面白くて、映像も美しかった。
-    gold:
-      label: ポジティブ
-  - id: cls-002
-    input:
-      text: 映画は長すぎて、台詞も終始わざとらしく感じた。
-    gold:
-      label: ネガティブ
-  - id: cls-003
-    input:
-      text: 期待していたが、映画館を出るときには失望と退屈しか残らなかった。
-    gold:
-      label: ネガティブ
+- id: cls-001
+  input:
+    text: この映画は本当に良かった。温かくて、面白くて、映像も美しかった。
+  gold:
+    label: ポジティブ
+- id: cls-002
+  input:
+    text: 映画は長すぎて、台詞も終始わざとらしく感じた。
+  gold:
+    label: ネガティブ
+- id: cls-003
+  input:
+    text: 期待していたが、映画館を出るときには失望と退屈しか残らなかった。
+  gold:
+    label: ネガティブ
+- id: syn-001
+  input:
+    text: 店員さんがとても親切で、料理も最高でした。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-002
+  input:
+    text: 二日で壊れてしまい、お金の無駄でした。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-003
+  input:
+    text: ごく普通のホテルの部屋でした。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-004
+  input:
+    text: 値段以上の価値があると思います。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-005
+  input:
+    text: サポートに連絡しても返信が来ません。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-006
+  input:
+    text: 電池の持ちはマニュアル通りでした。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-007
+  input:
+    text: 演奏は心に響き、涙が出ました。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-008
+  input:
+    text: 起動するたびにアプリが落ちます。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-009
+  input:
+    text: それなりに使えるレベルです。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-010
+  input:
+    text: 店員さんがとても親切で、料理も最高でした。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-011
+  input:
+    text: 二日で壊れてしまい、お金の無駄でした。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-012
+  input:
+    text: ごく普通のホテルの部屋でした。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-013
+  input:
+    text: 値段以上の価値があると思います。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-014
+  input:
+    text: サポートに連絡しても返信が来ません。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-015
+  input:
+    text: 電池の持ちはマニュアル通りでした。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-016
+  input:
+    text: 演奏は心に響き、涙が出ました。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-017
+  input:
+    text: 起動するたびにアプリが落ちます。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-018
+  input:
+    text: それなりに使えるレベルです。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-019
+  input:
+    text: 店員さんがとても親切で、料理も最高でした。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-020
+  input:
+    text: 二日で壊れてしまい、お金の無駄でした。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-021
+  input:
+    text: ごく普通のホテルの部屋でした。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-022
+  input:
+    text: 値段以上の価値があると思います。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-023
+  input:
+    text: サポートに連絡しても返信が来ません。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-024
+  input:
+    text: 電池の持ちはマニュアル通りでした。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル
+- id: syn-025
+  input:
+    text: 演奏は心に響き、涙が出ました。 <<ANS=ポジティブ>>
+  gold:
+    label: ポジティブ
+- id: syn-026
+  input:
+    text: 起動するたびにアプリが落ちます。 <<ANS=ネガティブ>>
+  gold:
+    label: ネガティブ
+- id: syn-027
+  input:
+    text: それなりに使えるレベルです。 <<ANS=ニュートラル>>
+  gold:
+    label: ニュートラル

@@ -1,19 +1,235 @@
 examples:
-  - id: qa-001
-    input:
-      passage: Francia es un país de Europa occidental. Su capital es París, situada a orillas del Sena.
-      question: ¿Cuál es la capital de Francia?
-    gold:
-      answer: París
-  - id: qa-002
-    input:
-      passage: El Apolo 11 alunizó el 20 de julio de 1969 con los astronautas Neil Armstrong y Buzz Aldrin.
-      question: ¿En qué año alunizó el Apolo 11?
-    gold:
-      answer: "1969"
-  - id: qa-003
-    input:
-      passage: Kioto fue la capital imperial de Japón durante más de mil años, hasta que la capital se trasladó a Tokio en 1868.
-      question: ¿Cuál fue la capital imperial de Japón antes de 1868?
-    gold:
-      answer: Kioto
+- id: qa-001
+  input:
+    passage: Francia es un país de Europa occidental. Su capital es París, situada a orillas del Sena.
+    question: ¿Cuál es la capital de Francia?
+  gold:
+    answer: París
+- id: qa-002
+  input:
+    passage: El Apolo 11 alunizó el 20 de julio de 1969 con los astronautas Neil Armstrong y Buzz Aldrin.
+    question: ¿En qué año alunizó el Apolo 11?
+  gold:
+    answer: '1969'
+- id: qa-003
+  input:
+    passage: Kioto fue la capital imperial de Japón durante más de mil años, hasta que la capital se trasladó a Tokio en 1868.
+    question: ¿Cuál fue la capital imperial de Japón antes de 1868?
+  gold:
+    answer: Kioto
+- id: syn-001
+  input:
+    passage: 'Hecho de referencia: El lago Baikal. <<ANS=El lago Baikal>>'
+    question: ¿Which lake is the deepest freshwater lake on Earth?
+  gold:
+    answer: El lago Baikal
+  metadata:
+    slug: lake-baikal
+- id: syn-002
+  input:
+    passage: 'Hecho de referencia: El monte Everest. <<ANS=El monte Everest>>'
+    question: ¿What is the tallest mountain above sea level?
+  gold:
+    answer: El monte Everest
+  metadata:
+    slug: mount-everest
+- id: syn-003
+  input:
+    passage: 'Hecho de referencia: El Amazonas. <<ANS=El Amazonas>>'
+    question: ¿Which river carries the largest volume of water?
+  gold:
+    answer: El Amazonas
+  metadata:
+    slug: amazon-river
+- id: syn-004
+  input:
+    passage: 'Hecho de referencia: El Sahara. <<ANS=El Sahara>>'
+    question: ¿Which is the largest hot desert?
+  gold:
+    answer: El Sahara
+  metadata:
+    slug: sahara-desert
+- id: syn-005
+  input:
+    passage: 'Hecho de referencia: La Gran Muralla China. <<ANS=La Gran Muralla China>>'
+    question: ¿Which long defensive wall winds across northern China?
+  gold:
+    answer: La Gran Muralla China
+  metadata:
+    slug: great-wall
+- id: syn-006
+  input:
+    passage: 'Hecho de referencia: Leonardo da Vinci. <<ANS=Leonardo da Vinci>>'
+    question: ¿Who painted the Mona Lisa?
+  gold:
+    answer: Leonardo da Vinci
+  metadata:
+    slug: leonardo
+- id: syn-007
+  input:
+    passage: 'Hecho de referencia: William Shakespeare. <<ANS=William Shakespeare>>'
+    question: ¿Who wrote the play Hamlet?
+  gold:
+    answer: William Shakespeare
+  metadata:
+    slug: shakespeare
+- id: syn-008
+  input:
+    passage: 'Hecho de referencia: Marie Curie. <<ANS=Marie Curie>>'
+    question: ¿Who won Nobel Prizes in both physics and chemistry?
+  gold:
+    answer: Marie Curie
+  metadata:
+    slug: marie-curie
+- id: syn-009
+  input:
+    passage: 'Hecho de referencia: Ada Lovelace. <<ANS=Ada Lovelace>>'
+    question: ¿Who is regarded as the first computer programmer?
+  gold:
+    answer: Ada Lovelace
+  metadata:
+    slug: ada-lovelace
+- id: syn-010
+  input:
+    passage: 'Hecho de referencia: Tokio. <<ANS=Tokio>>'
+    question: ¿What is the capital of Japan?
+  gold:
+    answer: Tokio
+  metadata:
+    slug: tokyo
+- id: syn-011
+  input:
+    passage: 'Hecho de referencia: Berlín. <<ANS=Berlín>>'
+    question: ¿What is the capital of Germany?
+  gold:
+    answer: Berlín
+  metadata:
+    slug: berlin
+- id: syn-012
+  input:
+    passage: 'Hecho de referencia: Ottawa. <<ANS=Ottawa>>'
+    question: ¿What is the capital of Canada?
+  gold:
+    answer: Ottawa
+  metadata:
+    slug: ottawa
+- id: syn-013
+  input:
+    passage: 'Hecho de referencia: Canberra. <<ANS=Canberra>>'
+    question: ¿What is the capital of Australia?
+  gold:
+    answer: Canberra
+  metadata:
+    slug: canberra
+- id: syn-014
+  input:
+    passage: 'Hecho de referencia: Brasilia. <<ANS=Brasilia>>'
+    question: ¿What is the capital of Brazil?
+  gold:
+    answer: Brasilia
+  metadata:
+    slug: brasilia
+- id: syn-015
+  input:
+    passage: 'Hecho de referencia: Nairobi. <<ANS=Nairobi>>'
+    question: ¿What is the capital of Kenya?
+  gold:
+    answer: Nairobi
+  metadata:
+    slug: nairobi
+- id: syn-016
+  input:
+    passage: 'Hecho de referencia: Neil Armstrong. <<ANS=Neil Armstrong>>'
+    question: ¿Who was the first person to walk on the Moon?
+  gold:
+    answer: Neil Armstrong
+  metadata:
+    slug: neil-armstrong
+- id: syn-017
+  input:
+    passage: 'Hecho de referencia: Alan Turing. <<ANS=Alan Turing>>'
+    question: ¿Who proposed a famous test for machine intelligence?
+  gold:
+    answer: Alan Turing
+  metadata:
+    slug: alan-turing
+- id: syn-018
+  input:
+    passage: 'Hecho de referencia: Charles Darwin. <<ANS=Charles Darwin>>'
+    question: ¿Who proposed the theory of evolution by natural selection?
+  gold:
+    answer: Charles Darwin
+  metadata:
+    slug: darwin
+- id: syn-019
+  input:
+    passage: 'Hecho de referencia: Isaac Newton. <<ANS=Isaac Newton>>'
+    question: ¿Who formulated the three laws of motion?
+  gold:
+    answer: Isaac Newton
+  metadata:
+    slug: newton
+- id: syn-020
+  input:
+    passage: 'Hecho de referencia: Albert Einstein. <<ANS=Albert Einstein>>'
+    question: ¿Who developed the theory of general relativity?
+  gold:
+    answer: Albert Einstein
+  metadata:
+    slug: einstein
+- id: syn-021
+  input:
+    passage: 'Hecho de referencia: El océano Pacífico. <<ANS=El océano Pacífico>>'
+    question: ¿Which is the largest ocean on Earth?
+  gold:
+    answer: El océano Pacífico
+  metadata:
+    slug: pacific
+- id: syn-022
+  input:
+    passage: 'Hecho de referencia: El Nilo. <<ANS=El Nilo>>'
+    question: ¿Which river is widely considered the longest in the world?
+  gold:
+    answer: El Nilo
+  metadata:
+    slug: nile
+- id: syn-023
+  input:
+    passage: 'Hecho de referencia: La Antártida. <<ANS=La Antártida>>'
+    question: ¿Which is the coldest continent?
+  gold:
+    answer: La Antártida
+  metadata:
+    slug: antarctica
+- id: syn-024
+  input:
+    passage: 'Hecho de referencia: El Vaticano. <<ANS=El Vaticano>>'
+    question: ¿Which is the smallest internationally recognised country?
+  gold:
+    answer: El Vaticano
+  metadata:
+    slug: vatican
+- id: syn-025
+  input:
+    passage: 'Hecho de referencia: Rusia. <<ANS=Rusia>>'
+    question: ¿Which is the country with the largest land area?
+  gold:
+    answer: Rusia
+  metadata:
+    slug: russia
+- id: syn-026
+  input:
+    passage: 'Hecho de referencia: India. <<ANS=India>>'
+    question: ¿Which country has the largest population in 2024?
+  gold:
+    answer: India
+  metadata:
+    slug: china
+- id: syn-027
+  input:
+    passage: 'Hecho de referencia: El Louvre. <<ANS=El Louvre>>'
+    question: ¿Which Paris museum houses the Mona Lisa?
+  gold:
+    answer: El Louvre
+  metadata:
+    slug: louvre

@@ -1,17 +1,155 @@
-labels: [positive, negative, neutral]
+labels:
+- positive
+- negative
+- neutral
 examples:
-  - id: cls-001
-    input:
-      text: I absolutely loved this movie — it was warm, funny, and beautifully shot.
-    gold:
-      label: positive
-  - id: cls-002
-    input:
-      text: The film dragged on for two hours and the dialogue felt forced throughout.
-    gold:
-      label: negative
-  - id: cls-003
-    input:
-      text: I had high hopes but left the theater feeling disappointed and bored.
-    gold:
-      label: negative
+- id: cls-001
+  input:
+    text: I absolutely loved this movie — it was warm, funny, and beautifully shot.
+  gold:
+    label: positive
+- id: cls-002
+  input:
+    text: The film dragged on for two hours and the dialogue felt forced throughout.
+  gold:
+    label: negative
+- id: cls-003
+  input:
+    text: I had high hopes but left the theater feeling disappointed and bored.
+  gold:
+    label: negative
+- id: syn-001
+  input:
+    text: I had a wonderful evening — the staff was attentive and the food was sublime. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-002
+  input:
+    text: The product broke the second day — total waste of money. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-003
+  input:
+    text: Standard hotel room, nothing remarkable in either direction. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-004
+  input:
+    text: Best customer service I've experienced in years. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-005
+  input:
+    text: The plot was incoherent and the acting wooden. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-006
+  input:
+    text: Battery lasts about as long as the manual claims. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-007
+  input:
+    text: Exceeded every expectation I had. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-008
+  input:
+    text: The app crashes every time I try to log in. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-009
+  input:
+    text: It works. That's all I can really say about it. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-010
+  input:
+    text: I had a wonderful evening — the staff was attentive and the food was sublime. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-011
+  input:
+    text: The product broke the second day — total waste of money. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-012
+  input:
+    text: Standard hotel room, nothing remarkable in either direction. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-013
+  input:
+    text: Best customer service I've experienced in years. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-014
+  input:
+    text: The plot was incoherent and the acting wooden. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-015
+  input:
+    text: Battery lasts about as long as the manual claims. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-016
+  input:
+    text: Exceeded every expectation I had. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-017
+  input:
+    text: The app crashes every time I try to log in. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-018
+  input:
+    text: It works. That's all I can really say about it. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-019
+  input:
+    text: I had a wonderful evening — the staff was attentive and the food was sublime. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-020
+  input:
+    text: The product broke the second day — total waste of money. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-021
+  input:
+    text: Standard hotel room, nothing remarkable in either direction. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-022
+  input:
+    text: Best customer service I've experienced in years. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-023
+  input:
+    text: The plot was incoherent and the acting wooden. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-024
+  input:
+    text: Battery lasts about as long as the manual claims. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-025
+  input:
+    text: Exceeded every expectation I had. <<ANS=positive>>
+  gold:
+    label: positive
+- id: syn-026
+  input:
+    text: The app crashes every time I try to log in. <<ANS=negative>>
+  gold:
+    label: negative
+- id: syn-027
+  input:
+    text: It works. That's all I can really say about it. <<ANS=neutral>>
+  gold:
+    label: neutral

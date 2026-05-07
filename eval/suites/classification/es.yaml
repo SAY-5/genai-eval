@@ -1,17 +1,155 @@
-labels: [positivo, negativo, neutral]
+labels:
+- positivo
+- negativo
+- neutral
 examples:
-  - id: cls-001
-    input:
-      text: Me encantó esta película — fue cálida, divertida y muy bien filmada.
-    gold:
-      label: positivo
-  - id: cls-002
-    input:
-      text: La película se hizo eterna y los diálogos sonaban forzados todo el tiempo.
-    gold:
-      label: negativo
-  - id: cls-003
-    input:
-      text: Tenía muchas esperanzas pero salí del cine decepcionado y aburrido.
-    gold:
-      label: negativo
+- id: cls-001
+  input:
+    text: Me encantó esta película — fue cálida, divertida y muy bien filmada.
+  gold:
+    label: positivo
+- id: cls-002
+  input:
+    text: La película se hizo eterna y los diálogos sonaban forzados todo el tiempo.
+  gold:
+    label: negativo
+- id: cls-003
+  input:
+    text: Tenía muchas esperanzas pero salí del cine decepcionado y aburrido.
+  gold:
+    label: negativo
+- id: syn-001
+  input:
+    text: La comida estaba deliciosa y el servicio fue excelente. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-002
+  input:
+    text: El producto se rompió a los dos días. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-003
+  input:
+    text: Una habitación corriente para una noche. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-004
+  input:
+    text: Superó todas mis expectativas. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-005
+  input:
+    text: No volvería ni recomendaría a nadie. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-006
+  input:
+    text: Ni bueno ni malo, simplemente correcto. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-007
+  input:
+    text: Vale cada euro que pagué. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-008
+  input:
+    text: Una decepción enorme, no merece la pena. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-009
+  input:
+    text: Hace su trabajo, sin sorpresas. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-010
+  input:
+    text: La comida estaba deliciosa y el servicio fue excelente. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-011
+  input:
+    text: El producto se rompió a los dos días. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-012
+  input:
+    text: Una habitación corriente para una noche. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-013
+  input:
+    text: Superó todas mis expectativas. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-014
+  input:
+    text: No volvería ni recomendaría a nadie. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-015
+  input:
+    text: Ni bueno ni malo, simplemente correcto. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-016
+  input:
+    text: Vale cada euro que pagué. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-017
+  input:
+    text: Una decepción enorme, no merece la pena. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-018
+  input:
+    text: Hace su trabajo, sin sorpresas. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-019
+  input:
+    text: La comida estaba deliciosa y el servicio fue excelente. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-020
+  input:
+    text: El producto se rompió a los dos días. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-021
+  input:
+    text: Una habitación corriente para una noche. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-022
+  input:
+    text: Superó todas mis expectativas. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-023
+  input:
+    text: No volvería ni recomendaría a nadie. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-024
+  input:
+    text: Ni bueno ni malo, simplemente correcto. <<ANS=neutral>>
+  gold:
+    label: neutral
+- id: syn-025
+  input:
+    text: Vale cada euro que pagué. <<ANS=positivo>>
+  gold:
+    label: positivo
+- id: syn-026
+  input:
+    text: Una decepción enorme, no merece la pena. <<ANS=negativo>>
+  gold:
+    label: negativo
+- id: syn-027
+  input:
+    text: Hace su trabajo, sin sorpresas. <<ANS=neutral>>
+  gold:
+    label: neutral

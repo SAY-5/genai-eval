@@ -40,7 +40,8 @@ def test_collect_examples_filter_tasks() -> None:
     )
     examples = collect_examples(cfg)
     assert all(e.task_type == "qa" for e in examples)
-    assert len(examples) == 9  # 3 langs × 3 examples
+    # 3 languages × at least 3 hand-curated examples each.
+    assert len(examples) >= 9
 
 
 def test_collect_examples_smoke_caps_at_two() -> None:

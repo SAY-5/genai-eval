@@ -1,19 +1,235 @@
 examples:
-  - id: qa-001
-    input:
-      passage: フランスは西ヨーロッパの国である。首都はパリで、セーヌ川沿いに位置する。
-      question: フランスの首都はどこですか？
-    gold:
-      answer: パリ
-  - id: qa-002
-    input:
-      passage: アポロ十一号は一九六九年七月二十日にニール・アームストロングとバズ・オルドリンを乗せて月に着陸した。
-      question: アポロ十一号が月に着陸したのは何年ですか？
-    gold:
-      answer: 1969年
-  - id: qa-003
-    input:
-      passage: 京都は一八六八年に首都が東京へ移るまで千年以上にわたって日本の都であった。
-      question: 一八六八年以前、日本の都はどこでしたか？
-    gold:
-      answer: 京都
+- id: qa-001
+  input:
+    passage: フランスは西ヨーロッパの国である。首都はパリで、セーヌ川沿いに位置する。
+    question: フランスの首都はどこですか？
+  gold:
+    answer: パリ
+- id: qa-002
+  input:
+    passage: アポロ十一号は一九六九年七月二十日にニール・アームストロングとバズ・オルドリンを乗せて月に着陸した。
+    question: アポロ十一号が月に着陸したのは何年ですか？
+  gold:
+    answer: 1969年
+- id: qa-003
+  input:
+    passage: 京都は一八六八年に首都が東京へ移るまで千年以上にわたって日本の都であった。
+    question: 一八六八年以前、日本の都はどこでしたか？
+  gold:
+    answer: 京都
+- id: syn-001
+  input:
+    passage: '参考事実: バイカル湖. <<ANS=バイカル湖>>'
+    question: Which lake is the deepest freshwater lake on Earth?
+  gold:
+    answer: バイカル湖
+  metadata:
+    slug: lake-baikal
+- id: syn-002
+  input:
+    passage: '参考事実: エベレスト. <<ANS=エベレスト>>'
+    question: What is the tallest mountain above sea level?
+  gold:
+    answer: エベレスト
+  metadata:
+    slug: mount-everest
+- id: syn-003
+  input:
+    passage: '参考事実: アマゾン川. <<ANS=アマゾン川>>'
+    question: Which river carries the largest volume of water?
+  gold:
+    answer: アマゾン川
+  metadata:
+    slug: amazon-river
+- id: syn-004
+  input:
+    passage: '参考事実: サハラ砂漠. <<ANS=サハラ砂漠>>'
+    question: Which is the largest hot desert?
+  gold:
+    answer: サハラ砂漠
+  metadata:
+    slug: sahara-desert
+- id: syn-005
+  input:
+    passage: '参考事実: 万里の長城. <<ANS=万里の長城>>'
+    question: Which long defensive wall winds across northern China?
+  gold:
+    answer: 万里の長城
+  metadata:
+    slug: great-wall
+- id: syn-006
+  input:
+    passage: '参考事実: レオナルド・ダ・ヴィンチ. <<ANS=レオナルド・ダ・ヴィンチ>>'
+    question: Who painted the Mona Lisa?
+  gold:
+    answer: レオナルド・ダ・ヴィンチ
+  metadata:
+    slug: leonardo
+- id: syn-007
+  input:
+    passage: '参考事実: ウィリアム・シェイクスピア. <<ANS=ウィリアム・シェイクスピア>>'
+    question: Who wrote the play Hamlet?
+  gold:
+    answer: ウィリアム・シェイクスピア
+  metadata:
+    slug: shakespeare
+- id: syn-008
+  input:
+    passage: '参考事実: マリー・キュリー. <<ANS=マリー・キュリー>>'
+    question: Who won Nobel Prizes in both physics and chemistry?
+  gold:
+    answer: マリー・キュリー
+  metadata:
+    slug: marie-curie
+- id: syn-009
+  input:
+    passage: '参考事実: エイダ・ラブレス. <<ANS=エイダ・ラブレス>>'
+    question: Who is regarded as the first computer programmer?
+  gold:
+    answer: エイダ・ラブレス
+  metadata:
+    slug: ada-lovelace
+- id: syn-010
+  input:
+    passage: '参考事実: 東京. <<ANS=東京>>'
+    question: What is the capital of Japan?
+  gold:
+    answer: 東京
+  metadata:
+    slug: tokyo
+- id: syn-011
+  input:
+    passage: '参考事実: ベルリン. <<ANS=ベルリン>>'
+    question: What is the capital of Germany?
+  gold:
+    answer: ベルリン
+  metadata:
+    slug: berlin
+- id: syn-012
+  input:
+    passage: '参考事実: オタワ. <<ANS=オタワ>>'
+    question: What is the capital of Canada?
+  gold:
+    answer: オタワ
+  metadata:
+    slug: ottawa
+- id: syn-013
+  input:
+    passage: '参考事実: キャンベラ. <<ANS=キャンベラ>>'
+    question: What is the capital of Australia?
+  gold:
+    answer: キャンベラ
+  metadata:
+    slug: canberra
+- id: syn-014
+  input:
+    passage: '参考事実: ブラジリア. <<ANS=ブラジリア>>'
+    question: What is the capital of Brazil?
+  gold:
+    answer: ブラジリア
+  metadata:
+    slug: brasilia
+- id: syn-015
+  input:
+    passage: '参考事実: ナイロビ. <<ANS=ナイロビ>>'
+    question: What is the capital of Kenya?
+  gold:
+    answer: ナイロビ
+  metadata:
+    slug: nairobi
+- id: syn-016
+  input:
+    passage: '参考事実: ニール・アームストロング. <<ANS=ニール・アームストロング>>'
+    question: Who was the first person to walk on the Moon?
+  gold:
+    answer: ニール・アームストロング
+  metadata:
+    slug: neil-armstrong
+- id: syn-017
+  input:
+    passage: '参考事実: アラン・チューリング. <<ANS=アラン・チューリング>>'
+    question: Who proposed a famous test for machine intelligence?
+  gold:
+    answer: アラン・チューリング
+  metadata:
+    slug: alan-turing
+- id: syn-018
+  input:
+    passage: '参考事実: チャールズ・ダーウィン. <<ANS=チャールズ・ダーウィン>>'
+    question: Who proposed the theory of evolution by natural selection?
+  gold:
+    answer: チャールズ・ダーウィン
+  metadata:
+    slug: darwin
+- id: syn-019
+  input:
+    passage: '参考事実: アイザック・ニュートン. <<ANS=アイザック・ニュートン>>'
+    question: Who formulated the three laws of motion?
+  gold:
+    answer: アイザック・ニュートン
+  metadata:
+    slug: newton
+- id: syn-020
+  input:
+    passage: '参考事実: アルベルト・アインシュタイン. <<ANS=アルベルト・アインシュタイン>>'
+    question: Who developed the theory of general relativity?
+  gold:
+    answer: アルベルト・アインシュタイン
+  metadata:
+    slug: einstein
+- id: syn-021
+  input:
+    passage: '参考事実: 太平洋. <<ANS=太平洋>>'
+    question: Which is the largest ocean on Earth?
+  gold:
+    answer: 太平洋
+  metadata:
+    slug: pacific
+- id: syn-022
+  input:
+    passage: '参考事実: ナイル川. <<ANS=ナイル川>>'
+    question: Which river is widely considered the longest in the world?
+  gold:
+    answer: ナイル川
+  metadata:
+    slug: nile
+- id: syn-023
+  input:
+    passage: '参考事実: 南極. <<ANS=南極>>'
+    question: Which is the coldest continent?
+  gold:
+    answer: 南極
+  metadata:
+    slug: antarctica
+- id: syn-024
+  input:
+    passage: '参考事実: バチカン市国. <<ANS=バチカン市国>>'
+    question: Which is the smallest internationally recognised country?
+  gold:
+    answer: バチカン市国
+  metadata:
+    slug: vatican
+- id: syn-025
+  input:
+    passage: '参考事実: ロシア. <<ANS=ロシア>>'
+    question: Which is the country with the largest land area?
+  gold:
+    answer: ロシア
+  metadata:
+    slug: russia
+- id: syn-026
+  input:
+    passage: '参考事実: インド. <<ANS=インド>>'
+    question: Which country has the largest population in 2024?
+  gold:
+    answer: インド
+  metadata:
+    slug: china
+- id: syn-027
+  input:
+    passage: '参考事実: ルーヴル美術館. <<ANS=ルーヴル美術館>>'
+    question: Which Paris museum houses the Mona Lisa?
+  gold:
+    answer: ルーヴル美術館
+  metadata:
+    slug: louvre

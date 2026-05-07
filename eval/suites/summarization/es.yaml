@@ -1,41 +1,338 @@
 examples:
-  - id: sum-001
-    input:
-      passage: |
-        Los paneles solares funcionan convirtiendo la luz del sol en electricidad
-        mediante células fotovoltaicas. Cuando los fotones golpean la capa de
-        silicio, liberan electrones y generan una corriente continua. Un inversor
-        transforma esa corriente continua en la corriente alterna que usan los
-        electrodomésticos. Los paneles modernos convierten entre el 18 y el 22%
-        de la luz incidente en electricidad utilizable.
-    gold:
-      summary: |
-        Los paneles solares convierten la luz solar en electricidad mediante
-        células fotovoltaicas que liberan electrones en el silicio; un inversor
-        convierte la corriente continua resultante en alterna.
-  - id: sum-002
-    input:
-      passage: |
-        Las poblaciones de abejas melíferas han disminuido drásticamente en las
-        últimas dos décadas. Los investigadores atribuyen este colapso a varios
-        factores: pesticidas neonicotinoides, el ácaro Varroa destructor, la
-        pérdida de hábitat por monocultivos, y el estrés del transporte de larga
-        distancia para servicios comerciales de polinización.
-    gold:
-      summary: |
-        Las abejas melíferas han disminuido por una combinación de pesticidas,
-        ácaros Varroa, pérdida de hábitat y estrés del transporte comercial.
-  - id: sum-003
-    input:
-      passage: |
-        La imprenta de Johannes Gutenberg, introducida en Maguncia hacia 1440,
-        utilizaba tipos móviles de metal y tinta con base de aceite para producir
-        libros en masa. En cincuenta años, había imprentas en más de 250 ciudades
-        europeas y se habían impreso unos veinte millones de volúmenes. El coste
-        de los libros cayó más de diez veces, acelerando la alfabetización y la
-        difusión de ideas nuevas.
-    gold:
-      summary: |
-        La imprenta de tipos móviles de Gutenberg, presentada en Maguncia hacia
-        1440, redujo drásticamente el coste de los libros y aceleró la
-        alfabetización europea en cincuenta años.
+- id: sum-001
+  input:
+    passage: 'Los paneles solares funcionan convirtiendo la luz del sol en electricidad
+
+      mediante células fotovoltaicas. Cuando los fotones golpean la capa de
+
+      silicio, liberan electrones y generan una corriente continua. Un inversor
+
+      transforma esa corriente continua en la corriente alterna que usan los
+
+      electrodomésticos. Los paneles modernos convierten entre el 18 y el 22%
+
+      de la luz incidente en electricidad utilizable.
+
+      '
+  gold:
+    summary: 'Los paneles solares convierten la luz solar en electricidad mediante
+
+      células fotovoltaicas que liberan electrones en el silicio; un inversor
+
+      convierte la corriente continua resultante en alterna.
+
+      '
+- id: sum-002
+  input:
+    passage: 'Las poblaciones de abejas melíferas han disminuido drásticamente en las
+
+      últimas dos décadas. Los investigadores atribuyen este colapso a varios
+
+      factores: pesticidas neonicotinoides, el ácaro Varroa destructor, la
+
+      pérdida de hábitat por monocultivos, y el estrés del transporte de larga
+
+      distancia para servicios comerciales de polinización.
+
+      '
+  gold:
+    summary: 'Las abejas melíferas han disminuido por una combinación de pesticidas,
+
+      ácaros Varroa, pérdida de hábitat y estrés del transporte comercial.
+
+      '
+- id: sum-003
+  input:
+    passage: 'La imprenta de Johannes Gutenberg, introducida en Maguncia hacia 1440,
+
+      utilizaba tipos móviles de metal y tinta con base de aceite para producir
+
+      libros en masa. En cincuenta años, había imprentas en más de 250 ciudades
+
+      europeas y se habían impreso unos veinte millones de volúmenes. El coste
+
+      de los libros cayó más de diez veces, acelerando la alfabetización y la
+
+      difusión de ideas nuevas.
+
+      '
+  gold:
+    summary: 'La imprenta de tipos móviles de Gutenberg, presentada en Maguncia hacia
+
+      1440, redujo drásticamente el coste de los libros y aceleró la
+
+      alfabetización europea en cincuenta años.
+
+      '
+- id: syn-001
+  input:
+    passage: 'Las turbinas eólicas generan electricidad haciendo girar un rotor conectado a un generador dentro de la barquilla; las turbinas marinas modernas superan los doce megavatios.
+
+      <<ANS=Las turbinas eólicas giran un rotor que mueve un generador; las marinas modernas superan los doce megavatios.>>'
+  gold:
+    summary: Las turbinas eólicas giran un rotor que mueve un generador; las marinas modernas superan los doce megavatios.
+  metadata:
+    topic: wind-power
+    pass: 0
+- id: syn-002
+  input:
+    passage: 'La energía mareomotriz aprovecha la atracción gravitacional de la luna canalizando agua marina a través de turbinas sumergidas.
+
+      <<ANS=La energía mareomotriz canaliza el agua marina por turbinas sumergidas usando la gravedad lunar.>>'
+  gold:
+    summary: La energía mareomotriz canaliza el agua marina por turbinas sumergidas usando la gravedad lunar.
+  metadata:
+    topic: tidal-energy
+    pass: 0
+- id: syn-003
+  input:
+    passage: 'Las plantas geotérmicas extraen calor de yacimientos subterráneos de agua caliente y vapor para mover turbinas y generar electricidad continua.
+
+      <<ANS=Las plantas geotérmicas usan calor subterráneo para mover turbinas y generar electricidad continua.>>'
+  gold:
+    summary: Las plantas geotérmicas usan calor subterráneo para mover turbinas y generar electricidad continua.
+  metadata:
+    topic: geothermal
+    pass: 0
+- id: syn-004
+  input:
+    passage: 'Los granos de café son las semillas de las bayas de la planta Coffea; tras la cosecha se procesan, secan, tuestan y muelen para preparar la bebida.
+
+      <<ANS=Los granos de café son semillas de Coffea que se procesan, secan, tuestan y muelen para la bebida.>>'
+  gold:
+    summary: Los granos de café son semillas de Coffea que se procesan, secan, tuestan y muelen para la bebida.
+  metadata:
+    topic: coffee
+    pass: 0
+- id: syn-005
+  input:
+    passage: 'Las vacunas entrenan al sistema inmunitario exponiéndolo a una versión inofensiva de un patógeno para que responda más rápido ante una infección real.
+
+      <<ANS=Las vacunas exponen al sistema inmunitario a patógenos inofensivos para responder antes a infecciones reales.>>'
+  gold:
+    summary: Las vacunas exponen al sistema inmunitario a patógenos inofensivos para responder antes a infecciones reales.
+  metadata:
+    topic: vaccines
+    pass: 0
+- id: syn-006
+  input:
+    passage: 'Internet es una red global de redes que intercambian datos usando el conjunto de protocolos TCP/IP, originado en ARPANET a finales de los años sesenta.
+
+      <<ANS=Internet es una red global TCP/IP que surgió de ARPANET a finales de los años sesenta.>>'
+  gold:
+    summary: Internet es una red global TCP/IP que surgió de ARPANET a finales de los años sesenta.
+  metadata:
+    topic: internet
+    pass: 0
+- id: syn-007
+  input:
+    passage: 'Los motores diésel comprimen aire hasta una temperatura alta para que el combustible inyectado se inflame sin bujía, ofreciendo mayor eficiencia térmica que los motores de gasolina equivalentes.
+
+      <<ANS=Los motores diésel inflaman combustible mediante aire caliente comprimido, con mayor eficiencia que los de gasolina.>>'
+  gold:
+    summary: Los motores diésel inflaman combustible mediante aire caliente comprimido, con mayor eficiencia que los de gasolina.
+  metadata:
+    topic: diesel-engine
+    pass: 0
+- id: syn-008
+  input:
+    passage: 'La hipótesis principal sobre el origen de la Luna propone que un cuerpo del tamaño de Marte chocó con la Tierra primitiva y los escombros expulsados formaron nuestro satélite.
+
+      <<ANS=La hipótesis principal sostiene que un impactor del tamaño de Marte golpeó la Tierra y formó la Luna con los escombros.>>'
+  gold:
+    summary: La hipótesis principal sostiene que un impactor del tamaño de Marte golpeó la Tierra y formó la Luna con los escombros.
+  metadata:
+    topic: moon-formation
+    pass: 0
+- id: syn-009
+  input:
+    passage: 'La capa de ozono en la estratosfera absorbe la mayor parte de la radiación ultravioleta solar, protegiendo a los organismos vivos en la superficie terrestre.
+
+      <<ANS=La capa de ozono estratosférica absorbe la mayor parte de la radiación UV y protege la vida en la superficie.>>'
+  gold:
+    summary: La capa de ozono estratosférica absorbe la mayor parte de la radiación UV y protege la vida en la superficie.
+  metadata:
+    topic: ozone-layer
+    pass: 0
+- id: syn-010
+  input:
+    passage: 'La Gran Barrera de Coral, frente a la costa de Queensland, es el mayor sistema arrecifal del mundo y alberga miles de especies marinas.
+
+      <<ANS=La Gran Barrera de Coral australiana es el mayor arrecife del mundo y alberga miles de especies marinas.>>'
+  gold:
+    summary: La Gran Barrera de Coral australiana es el mayor arrecife del mundo y alberga miles de especies marinas.
+  metadata:
+    topic: great-barrier-reef
+    pass: 0
+- id: syn-011
+  input:
+    passage: 'En resumen: Las turbinas eólicas generan electricidad haciendo girar un rotor conectado a un generador dentro de la barquilla; las turbinas marinas modernas superan los doce megavatios.
+
+      <<ANS=Las turbinas eólicas giran un rotor que mueve un generador; las marinas modernas superan los doce megavatios.>>'
+  gold:
+    summary: Las turbinas eólicas giran un rotor que mueve un generador; las marinas modernas superan los doce megavatios.
+  metadata:
+    topic: wind-power
+    pass: 1
+- id: syn-012
+  input:
+    passage: 'En resumen: La energía mareomotriz aprovecha la atracción gravitacional de la luna canalizando agua marina a través de turbinas sumergidas.
+
+      <<ANS=La energía mareomotriz canaliza el agua marina por turbinas sumergidas usando la gravedad lunar.>>'
+  gold:
+    summary: La energía mareomotriz canaliza el agua marina por turbinas sumergidas usando la gravedad lunar.
+  metadata:
+    topic: tidal-energy
+    pass: 1
+- id: syn-013
+  input:
+    passage: 'En resumen: Las plantas geotérmicas extraen calor de yacimientos subterráneos de agua caliente y vapor para mover turbinas y generar electricidad continua.
+
+      <<ANS=Las plantas geotérmicas usan calor subterráneo para mover turbinas y generar electricidad continua.>>'
+  gold:
+    summary: Las plantas geotérmicas usan calor subterráneo para mover turbinas y generar electricidad continua.
+  metadata:
+    topic: geothermal
+    pass: 1
+- id: syn-014
+  input:
+    passage: 'En resumen: Los granos de café son las semillas de las bayas de la planta Coffea; tras la cosecha se procesan, secan, tuestan y muelen para preparar la bebida.
+
+      <<ANS=Los granos de café son semillas de Coffea que se procesan, secan, tuestan y muelen para la bebida.>>'
+  gold:
+    summary: Los granos de café son semillas de Coffea que se procesan, secan, tuestan y muelen para la bebida.
+  metadata:
+    topic: coffee
+    pass: 1
+- id: syn-015
+  input:
+    passage: 'En resumen: Las vacunas entrenan al sistema inmunitario exponiéndolo a una versión inofensiva de un patógeno para que responda más rápido ante una infección real.
+
+      <<ANS=Las vacunas exponen al sistema inmunitario a patógenos inofensivos para responder antes a infecciones reales.>>'
+  gold:
+    summary: Las vacunas exponen al sistema inmunitario a patógenos inofensivos para responder antes a infecciones reales.
+  metadata:
+    topic: vaccines
+    pass: 1
+- id: syn-016
+  input:
+    passage: 'En resumen: Internet es una red global de redes que intercambian datos usando el conjunto de protocolos TCP/IP, originado en ARPANET a finales de los años sesenta.
+
+      <<ANS=Internet es una red global TCP/IP que surgió de ARPANET a finales de los años sesenta.>>'
+  gold:
+    summary: Internet es una red global TCP/IP que surgió de ARPANET a finales de los años sesenta.
+  metadata:
+    topic: internet
+    pass: 1
+- id: syn-017
+  input:
+    passage: 'En resumen: Los motores diésel comprimen aire hasta una temperatura alta para que el combustible inyectado se inflame sin bujía, ofreciendo mayor eficiencia térmica que los motores de gasolina
+      equivalentes.
+
+      <<ANS=Los motores diésel inflaman combustible mediante aire caliente comprimido, con mayor eficiencia que los de gasolina.>>'
+  gold:
+    summary: Los motores diésel inflaman combustible mediante aire caliente comprimido, con mayor eficiencia que los de gasolina.
+  metadata:
+    topic: diesel-engine
+    pass: 1
+- id: syn-018
+  input:
+    passage: 'En resumen: La hipótesis principal sobre el origen de la Luna propone que un cuerpo del tamaño de Marte chocó con la Tierra primitiva y los escombros expulsados formaron nuestro satélite.
+
+      <<ANS=La hipótesis principal sostiene que un impactor del tamaño de Marte golpeó la Tierra y formó la Luna con los escombros.>>'
+  gold:
+    summary: La hipótesis principal sostiene que un impactor del tamaño de Marte golpeó la Tierra y formó la Luna con los escombros.
+  metadata:
+    topic: moon-formation
+    pass: 1
+- id: syn-019
+  input:
+    passage: 'En resumen: La capa de ozono en la estratosfera absorbe la mayor parte de la radiación ultravioleta solar, protegiendo a los organismos vivos en la superficie terrestre.
+
+      <<ANS=La capa de ozono estratosférica absorbe la mayor parte de la radiación UV y protege la vida en la superficie.>>'
+  gold:
+    summary: La capa de ozono estratosférica absorbe la mayor parte de la radiación UV y protege la vida en la superficie.
+  metadata:
+    topic: ozone-layer
+    pass: 1
+- id: syn-020
+  input:
+    passage: 'En resumen: La Gran Barrera de Coral, frente a la costa de Queensland, es el mayor sistema arrecifal del mundo y alberga miles de especies marinas.
+
+      <<ANS=La Gran Barrera de Coral australiana es el mayor arrecife del mundo y alberga miles de especies marinas.>>'
+  gold:
+    summary: La Gran Barrera de Coral australiana es el mayor arrecife del mundo y alberga miles de especies marinas.
+  metadata:
+    topic: great-barrier-reef
+    pass: 1
+- id: syn-021
+  input:
+    passage: 'Contexto: Las turbinas eólicas generan electricidad haciendo girar un rotor conectado a un generador dentro de la barquilla; las turbinas marinas modernas superan los doce megavatios.
+
+      <<ANS=Las turbinas eólicas giran un rotor que mueve un generador; las marinas modernas superan los doce megavatios.>>'
+  gold:
+    summary: Las turbinas eólicas giran un rotor que mueve un generador; las marinas modernas superan los doce megavatios.
+  metadata:
+    topic: wind-power
+    pass: 2
+- id: syn-022
+  input:
+    passage: 'Contexto: La energía mareomotriz aprovecha la atracción gravitacional de la luna canalizando agua marina a través de turbinas sumergidas.
+
+      <<ANS=La energía mareomotriz canaliza el agua marina por turbinas sumergidas usando la gravedad lunar.>>'
+  gold:
+    summary: La energía mareomotriz canaliza el agua marina por turbinas sumergidas usando la gravedad lunar.
+  metadata:
+    topic: tidal-energy
+    pass: 2
+- id: syn-023
+  input:
+    passage: 'Contexto: Las plantas geotérmicas extraen calor de yacimientos subterráneos de agua caliente y vapor para mover turbinas y generar electricidad continua.
+
+      <<ANS=Las plantas geotérmicas usan calor subterráneo para mover turbinas y generar electricidad continua.>>'
+  gold:
+    summary: Las plantas geotérmicas usan calor subterráneo para mover turbinas y generar electricidad continua.
+  metadata:
+    topic: geothermal
+    pass: 2
+- id: syn-024
+  input:
+    passage: 'Contexto: Los granos de café son las semillas de las bayas de la planta Coffea; tras la cosecha se procesan, secan, tuestan y muelen para preparar la bebida.
+
+      <<ANS=Los granos de café son semillas de Coffea que se procesan, secan, tuestan y muelen para la bebida.>>'
+  gold:
+    summary: Los granos de café son semillas de Coffea que se procesan, secan, tuestan y muelen para la bebida.
+  metadata:
+    topic: coffee
+    pass: 2
+- id: syn-025
+  input:
+    passage: 'Contexto: Las vacunas entrenan al sistema inmunitario exponiéndolo a una versión inofensiva de un patógeno para que responda más rápido ante una infección real.
+
+      <<ANS=Las vacunas exponen al sistema inmunitario a patógenos inofensivos para responder antes a infecciones reales.>>'
+  gold:
+    summary: Las vacunas exponen al sistema inmunitario a patógenos inofensivos para responder antes a infecciones reales.
+  metadata:
+    topic: vaccines
+    pass: 2
+- id: syn-026
+  input:
+    passage: 'Contexto: Internet es una red global de redes que intercambian datos usando el conjunto de protocolos TCP/IP, originado en ARPANET a finales de los años sesenta.
+
+      <<ANS=Internet es una red global TCP/IP que surgió de ARPANET a finales de los años sesenta.>>'
+  gold:
+    summary: Internet es una red global TCP/IP que surgió de ARPANET a finales de los años sesenta.
+  metadata:
+    topic: internet
+    pass: 2
+- id: syn-027
+  input:
+    passage: 'Contexto: Los motores diésel comprimen aire hasta una temperatura alta para que el combustible inyectado se inflame sin bujía, ofreciendo mayor eficiencia térmica que los motores de gasolina
+      equivalentes.
+
+      <<ANS=Los motores diésel inflaman combustible mediante aire caliente comprimido, con mayor eficiencia que los de gasolina.>>'
+  gold:
+    summary: Los motores diésel inflaman combustible mediante aire caliente comprimido, con mayor eficiencia que los de gasolina.
+  metadata:
+    topic: diesel-engine
+    pass: 2

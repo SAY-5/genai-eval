@@ -1,42 +1,338 @@
 examples:
-  - id: sum-001
-    input:
-      passage: |
-        Solar panels work by converting sunlight into electricity through
-        photovoltaic cells. When photons strike the silicon layer, they free
-        electrons, generating a flow of direct current. An inverter then
-        converts the DC into the alternating current used by household
-        appliances. Modern panels typically convert 18-22% of incident sunlight
-        into usable electricity.
-    gold:
-      summary: |
-        Solar panels convert sunlight into electricity using photovoltaic cells,
-        which free electrons in silicon when struck by photons; an inverter
-        converts the resulting DC to AC.
-  - id: sum-002
-    input:
-      passage: |
-        Honeybee populations have declined sharply over the past two decades.
-        Researchers attribute this collapse to a mix of factors: neonicotinoid
-        pesticides, the Varroa destructor mite, habitat loss as wildflower
-        meadows give way to monoculture, and stress from long-distance
-        transport for commercial pollination services.
-    gold:
-      summary: |
-        Honeybee populations have declined due to a combination of pesticides,
-        Varroa mites, habitat loss, and transport stress from commercial
-        pollination.
-  - id: sum-003
-    input:
-      passage: |
-        Johannes Gutenberg's printing press, introduced in Mainz around 1440,
-        used movable metal type and an oil-based ink to mass-produce books.
-        Within fifty years, presses operated in over 250 European cities, and
-        an estimated twenty million volumes had been printed. The cost of
-        books fell by a factor of more than ten, accelerating literacy and
-        the spread of new ideas.
-    gold:
-      summary: |
-        Gutenberg's movable-type printing press, introduced in Mainz around
-        1440, drastically lowered book costs and accelerated European literacy
-        within fifty years.
+- id: sum-001
+  input:
+    passage: 'Solar panels work by converting sunlight into electricity through
+
+      photovoltaic cells. When photons strike the silicon layer, they free
+
+      electrons, generating a flow of direct current. An inverter then
+
+      converts the DC into the alternating current used by household
+
+      appliances. Modern panels typically convert 18-22% of incident sunlight
+
+      into usable electricity.
+
+      '
+  gold:
+    summary: 'Solar panels convert sunlight into electricity using photovoltaic cells,
+
+      which free electrons in silicon when struck by photons; an inverter
+
+      converts the resulting DC to AC.
+
+      '
+- id: sum-002
+  input:
+    passage: 'Honeybee populations have declined sharply over the past two decades.
+
+      Researchers attribute this collapse to a mix of factors: neonicotinoid
+
+      pesticides, the Varroa destructor mite, habitat loss as wildflower
+
+      meadows give way to monoculture, and stress from long-distance
+
+      transport for commercial pollination services.
+
+      '
+  gold:
+    summary: 'Honeybee populations have declined due to a combination of pesticides,
+
+      Varroa mites, habitat loss, and transport stress from commercial
+
+      pollination.
+
+      '
+- id: sum-003
+  input:
+    passage: 'Johannes Gutenberg''s printing press, introduced in Mainz around 1440,
+
+      used movable metal type and an oil-based ink to mass-produce books.
+
+      Within fifty years, presses operated in over 250 European cities, and
+
+      an estimated twenty million volumes had been printed. The cost of
+
+      books fell by a factor of more than ten, accelerating literacy and
+
+      the spread of new ideas.
+
+      '
+  gold:
+    summary: 'Gutenberg''s movable-type printing press, introduced in Mainz around
+
+      1440, drastically lowered book costs and accelerated European literacy
+
+      within fifty years.
+
+      '
+- id: syn-001
+  input:
+    passage: 'Wind turbines generate electricity by spinning a rotor connected to a generator inside the nacelle; modern offshore turbines can exceed twelve megawatts of rated capacity.
+
+      <<ANS=Wind turbines spin a rotor that drives a generator; modern offshore designs exceed twelve megawatts.>>'
+  gold:
+    summary: Wind turbines spin a rotor that drives a generator; modern offshore designs exceed twelve megawatts.
+  metadata:
+    topic: wind-power
+    pass: 0
+- id: syn-002
+  input:
+    passage: 'Tidal energy harnesses the gravitational pull of the moon by channeling rising and falling sea water through underwater turbines.
+
+      <<ANS=Tidal energy uses lunar gravity, channeling sea water through underwater turbines.>>'
+  gold:
+    summary: Tidal energy uses lunar gravity, channeling sea water through underwater turbines.
+  metadata:
+    topic: tidal-energy
+    pass: 0
+- id: syn-003
+  input:
+    passage: 'Geothermal plants extract heat from deep underground reservoirs of hot water and steam, driving turbines to produce electricity around the clock.
+
+      <<ANS=Geothermal plants tap underground heat to drive turbines and produce round-the-clock electricity.>>'
+  gold:
+    summary: Geothermal plants tap underground heat to drive turbines and produce round-the-clock electricity.
+  metadata:
+    topic: geothermal
+    pass: 0
+- id: syn-004
+  input:
+    passage: 'Coffee beans are the seeds of berries from Coffea plants; after harvesting they are processed, dried, roasted, and finally ground for brewing.
+
+      <<ANS=Coffee beans are seeds from Coffea berries that are processed, dried, roasted, and ground for brewing.>>'
+  gold:
+    summary: Coffee beans are seeds from Coffea berries that are processed, dried, roasted, and ground for brewing.
+  metadata:
+    topic: coffee
+    pass: 0
+- id: syn-005
+  input:
+    passage: 'Vaccines train the immune system by exposing it to a harmless version of a pathogen so that the body can mount a faster response upon real infection.
+
+      <<ANS=Vaccines expose the immune system to harmless pathogen versions so it responds faster to real infection.>>'
+  gold:
+    summary: Vaccines expose the immune system to harmless pathogen versions so it responds faster to real infection.
+  metadata:
+    topic: vaccines
+    pass: 0
+- id: syn-006
+  input:
+    passage: 'The internet is a global network of networks that exchange data using the TCP/IP protocol suite, originally developed for ARPANET in the late 1960s.
+
+      <<ANS=The internet is a global TCP/IP network that grew out of ARPANET in the late 1960s.>>'
+  gold:
+    summary: The internet is a global TCP/IP network that grew out of ARPANET in the late 1960s.
+  metadata:
+    topic: internet
+    pass: 0
+- id: syn-007
+  input:
+    passage: 'Diesel engines compress air to a high temperature so that injected fuel ignites without a spark plug, yielding higher thermal efficiency than comparable gasoline engines.
+
+      <<ANS=Diesel engines ignite injected fuel via compressed hot air, achieving higher efficiency than gasoline engines.>>'
+  gold:
+    summary: Diesel engines ignite injected fuel via compressed hot air, achieving higher efficiency than gasoline engines.
+  metadata:
+    topic: diesel-engine
+    pass: 0
+- id: syn-008
+  input:
+    passage: 'The leading hypothesis for the Moon''s origin proposes that a Mars-sized body collided with the early Earth, ejecting debris that coalesced into our natural satellite.
+
+      <<ANS=The leading hypothesis is that a Mars-sized impactor hit early Earth and the ejected debris formed the Moon.>>'
+  gold:
+    summary: The leading hypothesis is that a Mars-sized impactor hit early Earth and the ejected debris formed the Moon.
+  metadata:
+    topic: moon-formation
+    pass: 0
+- id: syn-009
+  input:
+    passage: 'The ozone layer in the stratosphere absorbs the majority of the Sun''s ultraviolet radiation, protecting living organisms on Earth''s surface.
+
+      <<ANS=The stratospheric ozone layer absorbs most ultraviolet radiation, protecting life at the surface.>>'
+  gold:
+    summary: The stratospheric ozone layer absorbs most ultraviolet radiation, protecting life at the surface.
+  metadata:
+    topic: ozone-layer
+    pass: 0
+- id: syn-010
+  input:
+    passage: 'The Great Barrier Reef off the coast of Queensland is the world''s largest coral reef system and supports thousands of marine species.
+
+      <<ANS=Australia''s Great Barrier Reef is the world''s largest coral reef and hosts thousands of marine species.>>'
+  gold:
+    summary: Australia's Great Barrier Reef is the world's largest coral reef and hosts thousands of marine species.
+  metadata:
+    topic: great-barrier-reef
+    pass: 0
+- id: syn-011
+  input:
+    passage: 'In short: Wind turbines generate electricity by spinning a rotor connected to a generator inside the nacelle; modern offshore turbines can exceed twelve megawatts of rated capacity.
+
+      <<ANS=Wind turbines spin a rotor that drives a generator; modern offshore designs exceed twelve megawatts.>>'
+  gold:
+    summary: Wind turbines spin a rotor that drives a generator; modern offshore designs exceed twelve megawatts.
+  metadata:
+    topic: wind-power
+    pass: 1
+- id: syn-012
+  input:
+    passage: 'In short: Tidal energy harnesses the gravitational pull of the moon by channeling rising and falling sea water through underwater turbines.
+
+      <<ANS=Tidal energy uses lunar gravity, channeling sea water through underwater turbines.>>'
+  gold:
+    summary: Tidal energy uses lunar gravity, channeling sea water through underwater turbines.
+  metadata:
+    topic: tidal-energy
+    pass: 1
+- id: syn-013
+  input:
+    passage: 'In short: Geothermal plants extract heat from deep underground reservoirs of hot water and steam, driving turbines to produce electricity around the clock.
+
+      <<ANS=Geothermal plants tap underground heat to drive turbines and produce round-the-clock electricity.>>'
+  gold:
+    summary: Geothermal plants tap underground heat to drive turbines and produce round-the-clock electricity.
+  metadata:
+    topic: geothermal
+    pass: 1
+- id: syn-014
+  input:
+    passage: 'In short: Coffee beans are the seeds of berries from Coffea plants; after harvesting they are processed, dried, roasted, and finally ground for brewing.
+
+      <<ANS=Coffee beans are seeds from Coffea berries that are processed, dried, roasted, and ground for brewing.>>'
+  gold:
+    summary: Coffee beans are seeds from Coffea berries that are processed, dried, roasted, and ground for brewing.
+  metadata:
+    topic: coffee
+    pass: 1
+- id: syn-015
+  input:
+    passage: 'In short: Vaccines train the immune system by exposing it to a harmless version of a pathogen so that the body can mount a faster response upon real infection.
+
+      <<ANS=Vaccines expose the immune system to harmless pathogen versions so it responds faster to real infection.>>'
+  gold:
+    summary: Vaccines expose the immune system to harmless pathogen versions so it responds faster to real infection.
+  metadata:
+    topic: vaccines
+    pass: 1
+- id: syn-016
+  input:
+    passage: 'In short: The internet is a global network of networks that exchange data using the TCP/IP protocol suite, originally developed for ARPANET in the late 1960s.
+
+      <<ANS=The internet is a global TCP/IP network that grew out of ARPANET in the late 1960s.>>'
+  gold:
+    summary: The internet is a global TCP/IP network that grew out of ARPANET in the late 1960s.
+  metadata:
+    topic: internet
+    pass: 1
+- id: syn-017
+  input:
+    passage: 'In short: Diesel engines compress air to a high temperature so that injected fuel ignites without a spark plug, yielding higher thermal efficiency than comparable gasoline engines.
+
+      <<ANS=Diesel engines ignite injected fuel via compressed hot air, achieving higher efficiency than gasoline engines.>>'
+  gold:
+    summary: Diesel engines ignite injected fuel via compressed hot air, achieving higher efficiency than gasoline engines.
+  metadata:
+    topic: diesel-engine
+    pass: 1
+- id: syn-018
+  input:
+    passage: 'In short: The leading hypothesis for the Moon''s origin proposes that a Mars-sized body collided with the early Earth, ejecting debris that coalesced into our natural satellite.
+
+      <<ANS=The leading hypothesis is that a Mars-sized impactor hit early Earth and the ejected debris formed the Moon.>>'
+  gold:
+    summary: The leading hypothesis is that a Mars-sized impactor hit early Earth and the ejected debris formed the Moon.
+  metadata:
+    topic: moon-formation
+    pass: 1
+- id: syn-019
+  input:
+    passage: 'In short: The ozone layer in the stratosphere absorbs the majority of the Sun''s ultraviolet radiation, protecting living organisms on Earth''s surface.
+
+      <<ANS=The stratospheric ozone layer absorbs most ultraviolet radiation, protecting life at the surface.>>'
+  gold:
+    summary: The stratospheric ozone layer absorbs most ultraviolet radiation, protecting life at the surface.
+  metadata:
+    topic: ozone-layer
+    pass: 1
+- id: syn-020
+  input:
+    passage: 'In short: The Great Barrier Reef off the coast of Queensland is the world''s largest coral reef system and supports thousands of marine species.
+
+      <<ANS=Australia''s Great Barrier Reef is the world''s largest coral reef and hosts thousands of marine species.>>'
+  gold:
+    summary: Australia's Great Barrier Reef is the world's largest coral reef and hosts thousands of marine species.
+  metadata:
+    topic: great-barrier-reef
+    pass: 1
+- id: syn-021
+  input:
+    passage: 'Background: Wind turbines generate electricity by spinning a rotor connected to a generator inside the nacelle; modern offshore turbines can exceed twelve megawatts of rated capacity.
+
+      <<ANS=Wind turbines spin a rotor that drives a generator; modern offshore designs exceed twelve megawatts.>>'
+  gold:
+    summary: Wind turbines spin a rotor that drives a generator; modern offshore designs exceed twelve megawatts.
+  metadata:
+    topic: wind-power
+    pass: 2
+- id: syn-022
+  input:
+    passage: 'Background: Tidal energy harnesses the gravitational pull of the moon by channeling rising and falling sea water through underwater turbines.
+
+      <<ANS=Tidal energy uses lunar gravity, channeling sea water through underwater turbines.>>'
+  gold:
+    summary: Tidal energy uses lunar gravity, channeling sea water through underwater turbines.
+  metadata:
+    topic: tidal-energy
+    pass: 2
+- id: syn-023
+  input:
+    passage: 'Background: Geothermal plants extract heat from deep underground reservoirs of hot water and steam, driving turbines to produce electricity around the clock.
+
+      <<ANS=Geothermal plants tap underground heat to drive turbines and produce round-the-clock electricity.>>'
+  gold:
+    summary: Geothermal plants tap underground heat to drive turbines and produce round-the-clock electricity.
+  metadata:
+    topic: geothermal
+    pass: 2
+- id: syn-024
+  input:
+    passage: 'Background: Coffee beans are the seeds of berries from Coffea plants; after harvesting they are processed, dried, roasted, and finally ground for brewing.
+
+      <<ANS=Coffee beans are seeds from Coffea berries that are processed, dried, roasted, and ground for brewing.>>'
+  gold:
+    summary: Coffee beans are seeds from Coffea berries that are processed, dried, roasted, and ground for brewing.
+  metadata:
+    topic: coffee
+    pass: 2
+- id: syn-025
+  input:
+    passage: 'Background: Vaccines train the immune system by exposing it to a harmless version of a pathogen so that the body can mount a faster response upon real infection.
+
+      <<ANS=Vaccines expose the immune system to harmless pathogen versions so it responds faster to real infection.>>'
+  gold:
+    summary: Vaccines expose the immune system to harmless pathogen versions so it responds faster to real infection.
+  metadata:
+    topic: vaccines
+    pass: 2
+- id: syn-026
+  input:
+    passage: 'Background: The internet is a global network of networks that exchange data using the TCP/IP protocol suite, originally developed for ARPANET in the late 1960s.
+
+      <<ANS=The internet is a global TCP/IP network that grew out of ARPANET in the late 1960s.>>'
+  gold:
+    summary: The internet is a global TCP/IP network that grew out of ARPANET in the late 1960s.
+  metadata:
+    topic: internet
+    pass: 2
+- id: syn-027
+  input:
+    passage: 'Background: Diesel engines compress air to a high temperature so that injected fuel ignites without a spark plug, yielding higher thermal efficiency than comparable gasoline engines.
+
+      <<ANS=Diesel engines ignite injected fuel via compressed hot air, achieving higher efficiency than gasoline engines.>>'
+  gold:
+    summary: Diesel engines ignite injected fuel via compressed hot air, achieving higher efficiency than gasoline engines.
+  metadata:
+    topic: diesel-engine
+    pass: 2
