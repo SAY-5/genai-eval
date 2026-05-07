@@ -24,4 +24,64 @@ describe("RunSummary", () => {
     expect(screen.getByText("75%")).toBeTruthy();
     expect(screen.getByText(/n=24/)).toBeTruthy();
   });
+
+  it("links the card to the run detail page", () => {
+    const { container } = render(
+      <RunSummary
+        run={{
+          id: 11,
+          provider: "fake",
+          model: "fake-large",
+          started_at: "2026-05-02T10:00:00Z",
+          finished_at: "2026-05-02T10:00:05Z",
+          status: "complete",
+          overall_pass_rate: 0.5,
+          n_total: 12,
+          n_errors: 1,
+        }}
+      />,
+    );
+    const link = container.querySelector("a");
+    expect(link?.getAttribute("href")).toBe("/runs/11");
+  });
+
+  it("shows the provider, status, and error count", () => {
+    render(
+      <RunSummary
+        run={{
+          id: 12,
+          provider: "openai",
+          model: "gpt-4o",
+          started_at: "2026-05-02T10:00:00Z",
+          finished_at: null,
+          status: "running",
+          overall_pass_rate: 0,
+          n_total: 0,
+          n_errors: 0,
+        }}
+      />,
+    );
+    expect(screen.getByText("gpt-4o")).toBeTruthy();
+    expect(screen.getByText(/openai/)).toBeTruthy();
+    expect(screen.getByText(/status=running/)).toBeTruthy();
+  });
+
+  it("rounds the overall pass rate to a whole percent", () => {
+    render(
+      <RunSummary
+        run={{
+          id: 13,
+          provider: "fake",
+          model: "fake-large",
+          started_at: "2026-05-02T10:00:00Z",
+          finished_at: "2026-05-02T10:00:05Z",
+          status: "complete",
+          overall_pass_rate: 0.6666,
+          n_total: 9,
+          n_errors: 0,
+        }}
+      />,
+    );
+    expect(screen.getByText("67%")).toBeTruthy();
+  });
 });
